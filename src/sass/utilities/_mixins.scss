@@ -1,0 +1,80 @@
+@mixin set_variables($variables) {
+  @each $key, $value in $variables {
+    --#{key}: #{value};
+  }
+}
+
+@mixin respond_to($screen) {
+  @if (map-has-key($breakpoints, $screen)) {
+    $width: map-get($breakpoints, $screen);
+    @if ($screen == 'xs') {
+      @content;
+    } @else {
+      @media screen and (min-width: $width) {
+        @content;
+      }
+    }
+  } @else {
+    @warn Screen size '#{$screen}' cannot be determined;
+  }
+}
+
+@mixin set_classes(
+  $map: (
+    $class: '',
+    $values: null,
+    $properties: null,
+    $responsive: false,
+    $query: null,
+    $pseudos: null,
+  )
+) {
+  $class: map-get($map, 'class');
+  $query: map-get($map, 'query');
+  $values: map-get($map, 'values');
+  $properties: map-get($map, 'properties');
+  $responsive: map-get($map, 'responsive');
+  $pseudos: if(
+    type-of(map-get($map, 'pseudos')) == 'map',
+    map-merge(
+      (
+        '': null,
+      ),
+      map-get($map, 'pseudos')
+    ),
+    null
+  );
+
+  $breakpoints: if(
+    $responsive == true,
+    $breakpoints,
+    (
+      xs: map-get($breakpoints, 'xs'),
+    )
+  );
+
+  @each $screen, $_ in $breakpoints {
+    $breakpoint: if($screen == 'xs', '', #{$screen}\:);
+    @include respond_to($screen) {
+      @each $key, $value in $values {
+        @each $pseudo_key, $pseudo_value in $pseudos {
+          $pseudo: if($pseudo_value != null, #{$pseudo_key}\:, null);
+
+          .#{$pseudo}#{$breakpoint}#{$class}-#{$key}#{$query} {
+            &#{$pseudo_value} {
+              @if type-of($value) != map {
+                @each $property, $_ in $properties {
+                  #{$property}: #{$value};
+                }
+              } @else {
+                @each $newProperty, $newValue in $value {
+                  #{$newProperty}: #{$newValue};
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

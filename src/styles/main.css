@@ -1,0 +1,291 @@
+:root {
+  --key: value;
+  --key: value;
+  --key: value;
+  --key: value;
+  --key: value;
+  --key: value;
+  --key: value;
+  --key: value;
+}
+
+.text-12 {
+  font-size: 1.2rem;
+  letter-spacing: -0.02em;
+}
+
+.hover\:text-12:hover {
+  font-size: 1.2rem;
+  letter-spacing: -0.02em;
+}
+
+.focus\:text-12:focus {
+  font-size: 1.2rem;
+  letter-spacing: -0.02em;
+}
+
+.placeholder\:text-12::placeholder {
+  font-size: 1.2rem;
+  letter-spacing: -0.02em;
+}
+
+.text-13 {
+  font-size: 1.3rem;
+  letter-spacing: 1.3rem;
+}
+
+.hover\:text-13:hover {
+  font-size: 1.3rem;
+  letter-spacing: 1.3rem;
+}
+
+.focus\:text-13:focus {
+  font-size: 1.3rem;
+  letter-spacing: 1.3rem;
+}
+
+.placeholder\:text-13::placeholder {
+  font-size: 1.3rem;
+  letter-spacing: 1.3rem;
+}
+
+.text-14 {
+  font-size: 1.4rem;
+  letter-spacing: 1.4rem;
+}
+
+.hover\:text-14:hover {
+  font-size: 1.4rem;
+  letter-spacing: 1.4rem;
+}
+
+.focus\:text-14:focus {
+  font-size: 1.4rem;
+  letter-spacing: 1.4rem;
+}
+
+.placeholder\:text-14::placeholder {
+  font-size: 1.4rem;
+  letter-spacing: 1.4rem;
+}
+
+.text-16 {
+  font-size: 1.6rem;
+  letter-spacing: 1.6rem;
+}
+
+.hover\:text-16:hover {
+  font-size: 1.6rem;
+  letter-spacing: 1.6rem;
+}
+
+.focus\:text-16:focus {
+  font-size: 1.6rem;
+  letter-spacing: 1.6rem;
+}
+
+.placeholder\:text-16::placeholder {
+  font-size: 1.6rem;
+  letter-spacing: 1.6rem;
+}
+
+@media screen and (min-width: 64rem) {
+  .sm\:text-12 {
+    font-size: 1.2rem;
+    letter-spacing: -0.02em;
+  }
+  .hover\:sm\:text-12:hover {
+    font-size: 1.2rem;
+    letter-spacing: -0.02em;
+  }
+  .focus\:sm\:text-12:focus {
+    font-size: 1.2rem;
+    letter-spacing: -0.02em;
+  }
+  .placeholder\:sm\:text-12::placeholder {
+    font-size: 1.2rem;
+    letter-spacing: -0.02em;
+  }
+  .sm\:text-13 {
+    font-size: 1.3rem;
+    letter-spacing: 1.3rem;
+  }
+  .hover\:sm\:text-13:hover {
+    font-size: 1.3rem;
+    letter-spacing: 1.3rem;
+  }
+  .focus\:sm\:text-13:focus {
+    font-size: 1.3rem;
+    letter-spacing: 1.3rem;
+  }
+  .placeholder\:sm\:text-13::placeholder {
+    font-size: 1.3rem;
+    letter-spacing: 1.3rem;
+  }
+  .sm\:text-14 {
+    font-size: 1.4rem;
+    letter-spacing: 1.4rem;
+  }
+  .hover\:sm\:text-14:hover {
+    font-size: 1.4rem;
+    letter-spacing: 1.4rem;
+  }
+  .focus\:sm\:text-14:focus {
+    font-size: 1.4rem;
+    letter-spacing: 1.4rem;
+  }
+  .placeholder\:sm\:text-14::placeholder {
+    font-size: 1.4rem;
+    letter-spacing: 1.4rem;
+  }
+  .sm\:text-16 {
+    font-size: 1.6rem;
+    letter-spacing: 1.6rem;
+  }
+  .hover\:sm\:text-16:hover {
+    font-size: 1.6rem;
+    letter-spacing: 1.6rem;
+  }
+  .focus\:sm\:text-16:focus {
+    font-size: 1.6rem;
+    letter-spacing: 1.6rem;
+  }
+  .placeholder\:sm\:text-16::placeholder {
+    font-size: 1.6rem;
+    letter-spacing: 1.6rem;
+  }
+}
+@media screen and (min-width: 80rem) {
+  .md\:text-12 {
+    font-size: 1.2rem;
+    letter-spacing: -0.02em;
+  }
+  .hover\:md\:text-12:hover {
+    font-size: 1.2rem;
+    letter-spacing: -0.02em;
+  }
+  .focus\:md\:text-12:focus {
+    font-size: 1.2rem;
+    letter-spacing: -0.02em;
+  }
+  .placeholder\:md\:text-12::placeholder {
+    font-size: 1.2rem;
+    letter-spacing: -0.02em;
+  }
+  .md\:text-13 {
+    font-size: 1.3rem;
+    letter-spacing: 1.3rem;
+  }
+  .hover\:md\:text-13:hover {
+    font-size: 1.3rem;
+    letter-spacing: 1.3rem;
+  }
+  .focus\:md\:text-13:focus {
+    font-size: 1.3rem;
+    letter-spacing: 1.3rem;
+  }
+  .placeholder\:md\:text-13::placeholder {
+    font-size: 1.3rem;
+    letter-spacing: 1.3rem;
+  }
+  .md\:text-14 {
+    font-size: 1.4rem;
+    letter-spacing: 1.4rem;
+  }
+  .hover\:md\:text-14:hover {
+    font-size: 1.4rem;
+    letter-spacing: 1.4rem;
+  }
+  .focus\:md\:text-14:focus {
+    font-size: 1.4rem;
+    letter-spacing: 1.4rem;
+  }
+  .placeholder\:md\:text-14::placeholder {
+    font-size: 1.4rem;
+    letter-spacing: 1.4rem;
+  }
+  .md\:text-16 {
+    font-size: 1.6rem;
+    letter-spacing: 1.6rem;
+  }
+  .hover\:md\:text-16:hover {
+    font-size: 1.6rem;
+    letter-spacing: 1.6rem;
+  }
+  .focus\:md\:text-16:focus {
+    font-size: 1.6rem;
+    letter-spacing: 1.6rem;
+  }
+  .placeholder\:md\:text-16::placeholder {
+    font-size: 1.6rem;
+    letter-spacing: 1.6rem;
+  }
+}
+@media screen and (min-width: 102rem) {
+  .lg\:text-12 {
+    font-size: 1.2rem;
+    letter-spacing: -0.02em;
+  }
+  .hover\:lg\:text-12:hover {
+    font-size: 1.2rem;
+    letter-spacing: -0.02em;
+  }
+  .focus\:lg\:text-12:focus {
+    font-size: 1.2rem;
+    letter-spacing: -0.02em;
+  }
+  .placeholder\:lg\:text-12::placeholder {
+    font-size: 1.2rem;
+    letter-spacing: -0.02em;
+  }
+  .lg\:text-13 {
+    font-size: 1.3rem;
+    letter-spacing: 1.3rem;
+  }
+  .hover\:lg\:text-13:hover {
+    font-size: 1.3rem;
+    letter-spacing: 1.3rem;
+  }
+  .focus\:lg\:text-13:focus {
+    font-size: 1.3rem;
+    letter-spacing: 1.3rem;
+  }
+  .placeholder\:lg\:text-13::placeholder {
+    font-size: 1.3rem;
+    letter-spacing: 1.3rem;
+  }
+  .lg\:text-14 {
+    font-size: 1.4rem;
+    letter-spacing: 1.4rem;
+  }
+  .hover\:lg\:text-14:hover {
+    font-size: 1.4rem;
+    letter-spacing: 1.4rem;
+  }
+  .focus\:lg\:text-14:focus {
+    font-size: 1.4rem;
+    letter-spacing: 1.4rem;
+  }
+  .placeholder\:lg\:text-14::placeholder {
+    font-size: 1.4rem;
+    letter-spacing: 1.4rem;
+  }
+  .lg\:text-16 {
+    font-size: 1.6rem;
+    letter-spacing: 1.6rem;
+  }
+  .hover\:lg\:text-16:hover {
+    font-size: 1.6rem;
+    letter-spacing: 1.6rem;
+  }
+  .focus\:lg\:text-16:focus {
+    font-size: 1.6rem;
+    letter-spacing: 1.6rem;
+  }
+  .placeholder\:lg\:text-16::placeholder {
+    font-size: 1.6rem;
+    letter-spacing: 1.6rem;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */
