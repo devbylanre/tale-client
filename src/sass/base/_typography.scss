@@ -1,11 +1,6 @@
 @include set_classes(
   (
     class: 'text',
-    responsive: true,
-    properties: (
-      font-size,
-      letter-spacing,
-    ),
     pseudos: (
       hover: ':hover',
       focus: ':focus',
@@ -13,12 +8,138 @@
     ),
     values: (
       12: (
-        font-size: 1.2rem,
-        letter-spacing: -0.02em,
+        line-height: normal,
+        font-size: calc(var(--font-size) * 1.2),
       ),
-      13: 1.3rem,
-      14: 1.4rem,
-      16: 1.6rem,
+      14: (
+        line-height: 1.5,
+        font-size: calc(var(--font-size) * 1.4),
+      ),
+      16: (
+        line-height: 1.4,
+        font-size: calc(var(--font-size) * 1.6),
+      ),
+      18: (
+        line-height: 1.4,
+        letter-spacing: -0.02em,
+        font-size: calc(var(--font-size) * 1.8),
+      ),
+      20: (
+        line-height: 1.35,
+        letter-spacing: -0.02em,
+        font-size: calc(var(--font-size) * 2),
+      ),
+      24: (
+        line-height: 1.35,
+        letter-spacing: -0.02em,
+        font-size: calc(var(--font-size) * 2.4),
+      ),
+      32: (
+        line-height: 1.3,
+        font-size:
+          clamp(calc(var(--font-size) * 2.4), 3vw, calc(var(--font-size) * 3.2)),
+      ),
+      40: (
+        line-height: 1.25,
+        font-size:
+          clamp(calc(var(--font-size) * 3.2), 3.5vw, calc(var(--font-size) * 4)),
+      ),
+      48: (
+        line-height: 1.2,
+        font-size:
+          clamp(calc(var(--font-size) * 3.2), 4vw, calc(var(--font-size) * 4.8)),
+      ),
+      56: (
+        line-height: 1.15,
+        font-size:
+          clamp(
+            calc(var(--font-size) * 3.2),
+            4.5vw,
+            calc(var(--font-size) * 5.6)
+          ),
+      ),
+      64: (
+        line-height: 1.1,
+        font-size:
+          clamp(calc(var(--font-size) * 4), 5vw, calc(var(--font-size) * 6.4)),
+      ),
+      80: (
+        line-height: 1.05,
+        font-size:
+          clamp(calc(var(--font-size) * 4), 6vw, calc(var(--font-size) * 8)),
+      ),
+    ),
+  )
+);
+
+@include set_classes(
+  (
+    class: 'weight',
+    properties: font-weight,
+    pseudos: (
+      hover: ':hover',
+      focus: ':focus',
+      placeholder: '::placeholder',
+    ),
+    values: (
+      400: calc(var(--font-weight) * 4),
+      500: calc(var(--font-weight) * 5),
+      600: calc(var(--font-weight) * 6),
+      700: calc(var(--font-weight) * 7),
+    ),
+  )
+);
+
+@include set_classes(
+  (
+    class: 'text',
+    properties: text-align,
+    values: (
+      left: left,
+      start: start,
+      center: center,
+      right: right,
+      end: end,
+      justify: justify,
+    ),
+  )
+);
+
+@include set_classes(
+  (
+    class: 'text',
+    properties: text-transform,
+    values: (
+      capitalize: capitalize,
+      uppercase: uppercase,
+      lowercase: lowercase,
+    ),
+  )
+);
+
+@include set_classes(
+  (
+    class: 'decorate',
+    properties: text-decoration,
+    values: (
+      none: none,
+      overline: overline,
+      underline: underline,
+      line-through: line-through,
+    ),
+  )
+);
+
+@include set_classes(
+  (
+    class: 'list-type',
+    properties: list-style-type,
+    values: (
+      none: none,
+      dotted: dotted,
+      decimal: decimal,
+      circle: circle,
+      square: square,
     ),
   )
 );
