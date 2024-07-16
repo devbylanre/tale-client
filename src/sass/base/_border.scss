@@ -1,0 +1,97 @@
+@include set_classes(
+  (
+    class: 'border',
+    properties: border-width,
+    values: (
+      0: 0px,
+      1: 1px,
+      2: 2px,
+      4: 4px,
+      8: 8px,
+    ),
+  )
+);
+
+@include set_classes(
+  (
+    class: 'border-t',
+    properties: border-top-width,
+    values: (
+      0: 0px,
+      1: 1px,
+      2: 2px,
+      4: 4px,
+      8: 8px,
+    ),
+  )
+);
+
+@include set_classes(
+  (
+    class: 'border-b',
+    properties: border-bottom-width,
+    values: (
+      0: 0px,
+      1: 1px,
+      2: 2px,
+      4: 4px,
+      8: 8px,
+    ),
+  )
+);
+
+@include set_classes(
+  (
+    class: 'border-l',
+    properties: border-left-width,
+    values: (
+      0: 0px,
+      1: 1px,
+      2: 2px,
+      4: 4px,
+      8: 8px,
+    ),
+  )
+);
+
+@include set_classes(
+  (
+    class: 'border-r',
+    properties: border-right-width,
+    values: (
+      0: 0px,
+      1: 1px,
+      2: 2px,
+      4: 4px,
+      8: 8px,
+    ),
+  )
+);
+
+@include set_classes(
+  (
+    class: 'border',
+    properties: border-style,
+    values: (
+      none: none,
+      solid: solid,
+      dashed: dashed,
+      dotted: dotted,
+    ),
+  )
+);
+
+@include set_classes(
+  (
+    class: 'radius',
+    properties: border-radius,
+    values: (
+      xs: 0.25rem,
+      sm: 0.5rem,
+      md: 0.75rem,
+      lg: 1rem,
+      xl: 2rem,
+      max: 999rem,
+    ),
+  )
+);

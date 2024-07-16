@@ -1,0 +1,30 @@
+@include set_classes(
+  (
+    class: 'cursor',
+    properties: cursor,
+    values: (
+      wait: wait,
+      auto: auto,
+      default: default,
+      pointer: pointer,
+      text: text,
+      move: move,
+      help: help,
+      none: none,
+      ban: not-allowed,
+      progress: progress,
+    ),
+  )
+);
+
+@include set_classes(
+  (
+    class: 'pointer',
+    properties: pointer,
+    values: (
+      cursor: cursor,
+      none: none,
+      auto: auto,
+    ),
+  )
+);

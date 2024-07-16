@@ -1,0 +1,115 @@
+@include set_classes(
+  (
+    class: 'd',
+    responsive: true,
+    pseudos: (
+      hover: ':hover',
+      active: ':active',
+      placeholder: '::placeholder',
+    ),
+    properties: display,
+    values: (
+      none: none,
+      flex: flex,
+      grid: grid,
+      block: block,
+      inline: inline,
+      inline-flex: inline-flex,
+      inline-grid: inline-grid,
+      inline-block: inline-block,
+    ),
+  )
+);
+
+@include set_classes(
+  (
+    class: 'pos',
+    properties: position,
+    values: (
+      sticky: sticky,
+      static: static,
+      absolute: absolute,
+      relative: relative,
+    ),
+  )
+);
+
+@include set_classes(
+  (
+    class: 'visible',
+    properties: visibility,
+    values: (
+      visible: 'visible',
+      invisible: 'hidden',
+      collapse: 'collapse',
+    ),
+  )
+);
+
+@include set_classes(
+  (
+    class: 'overflow',
+    properties: overflow,
+    values: (
+      auto: auto,
+      hidden: hidden,
+      scroll: scroll,
+      visible: visible,
+    ),
+  )
+);
+
+@include set_classes(
+  (
+    class: 'overflow-x',
+    properties: overflow-x,
+    values: (
+      auto: auto,
+      hidden: hidden,
+      scroll: scroll,
+      visible: visible,
+    ),
+  )
+);
+
+@include set_classes(
+  (
+    class: 'overflow-y',
+    properties: overflow-y,
+    values: (
+      auto: auto,
+      hidden: hidden,
+      scroll: scroll,
+      visible: visible,
+    ),
+  )
+);
+
+@include set_classes(
+  (
+    class: 'z',
+    properties: z-index,
+    values: (
+      0: 0,
+      10: 1,
+      20: 2,
+      30: 3,
+      40: 4,
+      50: 5,
+      auto: auto,
+    ),
+  )
+);
+
+@include set_classes(
+  (
+    class: 'obj-fit',
+    properties: object-fit,
+    values: (
+      auto: auto,
+      cover: cover,
+      contain: contain,
+      scale-down: scale-down,
+    ),
+  )
+);

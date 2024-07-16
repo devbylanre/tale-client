@@ -1,0 +1,205 @@
+$SPACE: (
+  none: 0rem,
+  2xs: calc(var(--space) / 4),
+  xs: calc(var(--space) / 2),
+  sm: calc(var(--space) * 1),
+  md: calc(var(--space) * 1),
+  lg: calc(var(--space) * 1),
+  xl: calc(var(--space) * 1.5),
+  2xl: calc(var(--space) * 2),
+  3xl: calc(var(--space) * 3),
+  4xl: calc(var(--space) * 4),
+  5xl: calc(var(--space) * 6),
+  6xl: calc(var(--space) * 8),
+  7xl: calc(var(--space) * 10),
+  8xl: calc(var(--space) * 12),
+  9xl: calc(var(--space) * 14),
+  10xl: calc(var(--space) * 16),
+  11xl: calc(var(--space) * 18),
+  12xl: calc(var(--space) * 20),
+);
+
+@include set_classes(
+  (
+    class: 'm',
+    responsive: true,
+    properties: margin,
+    values: $SPACE,
+  )
+);
+
+@include set_classes(
+  (
+    class: 'ms',
+    responsive: true,
+    properties: margin-left,
+    values: $SPACE,
+  )
+);
+
+@include set_classes(
+  (
+    class: 'me',
+    responsive: true,
+    properties: margin-right,
+    values: $SPACE,
+  )
+);
+
+@include set_classes(
+  (
+    class: 'mt',
+    responsive: true,
+    properties: margin-top,
+    values: $SPACE,
+  )
+);
+
+@include set_classes(
+  (
+    class: 'mb',
+    responsive: true,
+    properties: margin-bottom,
+    values: $SPACE,
+  )
+);
+
+@include set_classes(
+  (
+    class: 'mx',
+    responsive: true,
+    properties: (
+      margin-left: margin-left,
+      margin-right: margin-right,
+    ),
+    values: $SPACE,
+  )
+);
+
+@include set_classes(
+  (
+    class: 'my',
+    responsive: true,
+    properties: (
+      margin-left: margin-top,
+      margin-right: margin-bottom,
+    ),
+    values: $SPACE,
+  )
+);
+
+@include set_classes(
+  (
+    class: 'p',
+    responsive: true,
+    properties: padding,
+    values: $SPACE,
+  )
+);
+
+@include set_classes(
+  (
+    class: 'ps',
+    responsive: true,
+    properties: padding-left,
+    values: $SPACE,
+  )
+);
+
+@include set_classes(
+  (
+    class: 'pe',
+    responsive: true,
+    properties: padding-right,
+    values: $SPACE,
+  )
+);
+
+@include set_classes(
+  (
+    class: 'pt',
+    responsive: true,
+    properties: padding-top,
+    values: $SPACE,
+  )
+);
+
+@include set_classes(
+  (
+    class: 'pb',
+    responsive: true,
+    properties: padding-bottom,
+    values: $SPACE,
+  )
+);
+
+@include set_classes(
+  (
+    class: 'px',
+    responsive: true,
+    properties: (
+      padding-left: padding-left,
+      padding-right: padding-right,
+    ),
+    values: $SPACE,
+  )
+);
+
+@include set_classes(
+  (
+    class: 'py',
+    responsive: true,
+    properties: (
+      padding-left: padding-top,
+      padding-right: padding-bottom,
+    ),
+    values: $SPACE,
+  )
+);
+
+@include set_classes(
+  (
+    class: 'gap',
+    responsive: true,
+    properties: gap,
+    values: $SPACE,
+  )
+);
+
+@include set_classes(
+  (
+    class: 'gap-x',
+    responsive: true,
+    properties: column-gap,
+    values: $SPACE,
+  )
+);
+
+@include set_classes(
+  (
+    class: 'gap-y',
+    responsive: true,
+    properties: row-gap,
+    values: $SPACE,
+  )
+);
+
+@include set_classes(
+  (
+    class: 'space-x',
+    responsive: true,
+    query: ':not(:first-child)',
+    properties: margin-left,
+    values: $SPACE,
+  )
+);
+
+@include set_classes(
+  (
+    class: 'space-y',
+    responsive: true,
+    query: ':not(:first-child)',
+    properties: margin-top,
+    values: $SPACE,
+  )
+);

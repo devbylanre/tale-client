@@ -1,0 +1,85 @@
+@include set_classes(
+  (
+    class: 'transition',
+    properties: transition-property,
+    values: (
+      none: none,
+      all: (
+        transition-property: all,
+      ),
+      default: (
+        transition-property: (
+          color,
+          background-color,
+          border-color,
+          text-decoration-color,
+          fill,
+          stroke,
+          opacity,
+          box-shadow,
+          transform,
+          filter,
+          backdrop-filter,
+        ),
+      ),
+    ),
+    colors: (
+      transition-property: (
+        color,
+        background-color,
+        border-color,
+        text-decoration-color,
+        fill,
+        stroke,
+      ),
+    ),
+    opacity: (
+      transition-property: opacity,
+    ),
+    shadow: (
+      transition-property: box-shadow,
+    ),
+    transform: (
+      transition-property: transform,
+    ),
+  )
+);
+
+@include set_classes(
+  (
+    class: 'transition-duration',
+    properties: transition-duration,
+    values: (
+      slow: 300ms,
+      fast: 150ms,
+      slower: 500ms,
+      faster: 75ms,
+    ),
+  )
+);
+
+@include set_classes(
+  (
+    class: 'transition-delay',
+    properties: transition-delay,
+    values: (
+      slow: 300ms,
+      fast: 150ms,
+      slower: 500ms,
+      faster: 75ms,
+    ),
+  )
+);
+
+@include set_classes(
+  (
+    class: 'transition-timing',
+    properties: transition-timing-function,
+    values: (
+      ease-linear: 'ease-linear',
+      ease-in: 'ease-in',
+      ease-out: 'ease-out',
+      ease-in-out: 'ease-in-out',
+    ),
+  )
+);

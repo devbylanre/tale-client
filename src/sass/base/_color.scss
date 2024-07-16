@@ -1,3 +1,66 @@
 $shades: shades($colors);
 
-@debug $shades;
+@include set_classes(
+  (
+    class: 'color',
+    properties: color,
+    pseudos: (
+      hover: ':hover',
+      active: ':active',
+      placeholder: '::placeholder',
+    ),
+    values: $shades,
+  )
+);
+
+@include set_classes(
+  (
+    class: 'bg',
+    properties: background-color,
+    pseudos: (
+      hover: ':hover',
+      active: ':active',
+      placeholder: '::placeholder',
+    ),
+    values: $shades,
+  )
+);
+
+@include set_classes(
+  (
+    class: 'fill',
+    properties: fill,
+    pseudos: (
+      hover: ':hover',
+      active: ':active',
+      placeholder: '::placeholder',
+    ),
+    values: $shades,
+  )
+);
+
+@include set_classes(
+  (
+    class: 'stroke',
+    properties: stroke,
+    pseudos: (
+      hover: ':hover',
+      active: ':active',
+      placeholder: '::placeholder',
+    ),
+    values: $shades,
+  )
+);
+
+@include set_classes(
+  (
+    class: 'border',
+    properties: border-color,
+    pseudos: (
+      hover: ':hover',
+      active: ':active',
+      placeholder: '::placeholder',
+    ),
+    values: $shades,
+  )
+);

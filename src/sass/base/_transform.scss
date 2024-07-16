@@ -1,0 +1,140 @@
+@include set_classes(
+  (
+    class: 'scale',
+    properties: transform,
+    pseudos: (
+      hover: ':hover',
+    ),
+    values: (
+      0: scale(0%),
+      10: scale(10%),
+      20: scale(20%),
+      30: scale(30%),
+      40: scale(40%),
+      50: scale(50%),
+      60: scale(60%),
+      70: scale(70%),
+      80: scale(80%),
+      90: scale(90%),
+      100: scale(100%),
+    ),
+  )
+);
+
+@include set_classes(
+  (
+    class: 'rotate',
+    properties: transform,
+    pseudos: (
+      hover: ':hover',
+    ),
+    values: (
+      0: rotate(0deg),
+      2: rotate(2deg),
+      4: rotate(4deg),
+      8: rotate(8deg),
+      45: rotate(45deg),
+      90: rotate(90deg),
+      120: rotate(120deg),
+      180: rotate(180deg),
+    ),
+  )
+);
+
+@include set_classes(
+  (
+    class: '-translate-x',
+    properties: transform,
+    pseudos: (
+      hover: ':hover',
+    ),
+    values: (
+      0: translateX(-0rem),
+      2: translateX(-0.2rem),
+      4: translateX(-0.4rem),
+      8: translateX(-0.8rem),
+      12: translateX(-1.2rem),
+      16: translateX(-1.6rem),
+      24: translateX(-2.4rem),
+      32: translateX(-3.2rem),
+    ),
+  )
+);
+
+@include set_classes(
+  (
+    class: 'translate-x',
+    properties: transform,
+    pseudos: (
+      hover: ':hover',
+    ),
+    values: (
+      0: translateX(0rem),
+      2: translateX(0.2rem),
+      4: translateX(0.4rem),
+      8: translateX(0.8rem),
+      12: translateX(1.2rem),
+      16: translateX(1.6rem),
+      24: translateX(2.4rem),
+      32: translateX(3.2rem),
+    ),
+  )
+);
+
+@include set_classes(
+  (
+    class: '-translate-y',
+    properties: transform,
+    pseudos: (
+      hover: ':hover',
+    ),
+    values: (
+      0: translateY(-0rem),
+      2: translateY(-0.2rem),
+      4: translateY(-0.4rem),
+      8: translateY(-0.8rem),
+      12: translateY(-1.2rem),
+      16: translateY(-1.6rem),
+      24: translateY(-2.4rem),
+      32: translateY(-3.2rem),
+    ),
+  )
+);
+
+@include set_classes(
+  (
+    class: 'translate-y',
+    properties: transform,
+    pseudos: (
+      hover: ':hover',
+    ),
+    values: (
+      0: translateY(0rem),
+      2: translateY(0.2rem),
+      4: translateY(0.4rem),
+      8: translateY(0.8rem),
+      12: translateY(1.2rem),
+      16: translateY(1.6rem),
+      24: translateY(2.4rem),
+      32: translateY(3.2rem),
+    ),
+  )
+);
+
+@include set_classes(
+  (
+    class: 'origin',
+    properties: transform-origin,
+    values: (
+      top: top,
+      left: left,
+      right: right,
+      bottom: bottom,
+      center: center,
+      top-left: top left,
+      top-right: top right,
+      bottom-left: bottom left,
+      bottom-right: bottom right,
+    ),
+  )
+);

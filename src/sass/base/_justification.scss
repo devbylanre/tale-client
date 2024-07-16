@@ -1,0 +1,143 @@
+@include set_classes(
+  (
+    class: 'justify-content',
+    responsive: true,
+    properties: justify-content,
+    values: (
+      end: end,
+      start: start,
+      normal: normal,
+      center: center,
+      evenly: space-evenly,
+      around: space-around,
+      between: space-between,
+      stretch: stretch,
+    ),
+  )
+);
+
+@include set_classes(
+  (
+    class: 'justify-items',
+    responsive: true,
+    properties: justify-items,
+    values: (
+      start: start,
+      end: end,
+      center: center,
+      stretch: stretch,
+    ),
+  )
+);
+
+@include set_classes(
+  (
+    class: 'justify-self',
+    responsive: true,
+    properties: justify-self,
+    values: (
+      end: end,
+      auto: auto,
+      start: start,
+      center: center,
+      stretch: stretch,
+    ),
+  )
+);
+
+@include set_classes(
+  (
+    class: 'content',
+    responsive: true,
+    properties: align-content,
+    values: (
+      end: end,
+      start: start,
+      normal: normal,
+      center: center,
+      evenly: space-evenly,
+      around: space-around,
+      between: space-between,
+      stretch: stretch,
+      baseline: baseline,
+    ),
+  )
+);
+
+@include set_classes(
+  (
+    class: 'items',
+    responsive: true,
+    properties: align-items,
+    values: (
+      end: end,
+      start: start,
+      center: center,
+      stretch: stretch,
+      baseline: baseline,
+    ),
+  )
+);
+
+@include set_classes(
+  (
+    class: 'self',
+    responsive: true,
+    properties: align-self,
+    values: (
+      end: end,
+      auto: auto,
+      start: start,
+      center: center,
+      stretch: stretch,
+      baseline: baseline,
+    ),
+  )
+);
+
+@include set_classes(
+  (
+    class: 'place-content',
+    responsive: true,
+    properties: place-content,
+    values: (
+      end: end,
+      start: start,
+      normal: normal,
+      center: center,
+      evenly: space-evenly,
+      around: space-around,
+      between: space-between,
+      stretch: stretch,
+    ),
+  )
+);
+
+@include set_classes(
+  (
+    class: 'place-items',
+    responsive: true,
+    properties: place-items,
+    values: (
+      start: start,
+      end: end,
+      center: center,
+      stretch: stretch,
+    ),
+  )
+);
+
+@include set_classes(
+  (
+    class: 'place-self',
+    responsive: true,
+    properties: place-self,
+    values: (
+      end: end,
+      auto: auto,
+      start: start,
+      center: center,
+      stretch: stretch,
+    ),
+  )
+);
