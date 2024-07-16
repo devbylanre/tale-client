@@ -1,6 +1,6 @@
 @mixin set_variables($variables) {
   @each $key, $value in $variables {
-    --#{key}: #{value};
+    --#{$key}: #{$value};
   }
 }
 
@@ -22,11 +22,11 @@
 @mixin set_classes(
   $map: (
     $class: '',
+    $query: null,
     $values: null,
+    $pseudos: null,
     $properties: null,
     $responsive: false,
-    $query: null,
-    $pseudos: null,
   )
 ) {
   $class: map-get($map, 'class');
