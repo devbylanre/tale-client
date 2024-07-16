@@ -1,0 +1,32 @@
+$variables: (
+  white: #ffffff,
+  black: #000000,
+
+  space: 0.8rem,
+
+  border-width: 1px,
+  border-radius: 1rem,
+
+  size: 0.8rem,
+
+  font-size: 1rem,
+  font-weight: 100,
+);
+
+$breakpoints: (
+  xs: 56rem,
+  sm: 64rem,
+  md: 80rem,
+  lg: 102rem,
+);
+
+$colors: (
+  white: #fff,
+  black: #000,
+  red: #e10f0f,
+  blue: #0a1af3,
+  green: #12da3a,
+  yellow: #edb610,
+  orange: #e47616,
+  purple: #5c15e1,
+);
