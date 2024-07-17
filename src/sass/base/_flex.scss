@@ -3,9 +3,6 @@
     class: 'basis',
     properties: flex-basis,
     responsive: true,
-    pseudos: (
-      hover: ':hover',
-    ),
     values: (
       1\/12: 8.33%,
       2\/12: 16.67%,
@@ -29,10 +26,10 @@
     properties: flex-direction,
     responsive: true,
     values: (
-      r: row,
-      r-alt: row-reverse,
-      c: column,
-      c-alt: column-reverse,
+      row: row,
+      row-alt: row-reverse,
+      column: column,
+      column-alt: column-reverse,
     ),
   )
 );
@@ -43,9 +40,9 @@
     properties: flex-wrap,
     responsive: true,
     values: (
-      no-wrap: nowrap,
-      wrap: wrap,
-      reverse: wrap-reverse,
+      wrap: nowrap,
+      no-wrap: wrap,
+      wrap-alt: wrap-reverse,
     ),
   )
 );

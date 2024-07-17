@@ -28,32 +28,6 @@ $shades: shades($colors);
 
 @include set_classes(
   (
-    class: 'fill',
-    properties: fill,
-    pseudos: (
-      hover: ':hover',
-      active: ':active',
-      placeholder: '::placeholder',
-    ),
-    values: $shades,
-  )
-);
-
-@include set_classes(
-  (
-    class: 'stroke',
-    properties: stroke,
-    pseudos: (
-      hover: ':hover',
-      active: ':active',
-      placeholder: '::placeholder',
-    ),
-    values: $shades,
-  )
-);
-
-@include set_classes(
-  (
     class: 'border',
     properties: border-color,
     pseudos: (

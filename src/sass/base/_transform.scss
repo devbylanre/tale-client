@@ -17,6 +17,9 @@
       80: scale(80%),
       90: scale(90%),
       100: scale(100%),
+      110: scale(110%),
+      125: scale(110%),
+      150: scale(150%),
     ),
   )
 );
@@ -43,26 +46,6 @@
 
 @include set_classes(
   (
-    class: '-translate-x',
-    properties: transform,
-    pseudos: (
-      hover: ':hover',
-    ),
-    values: (
-      0: translateX(-0rem),
-      2: translateX(-0.2rem),
-      4: translateX(-0.4rem),
-      8: translateX(-0.8rem),
-      12: translateX(-1.2rem),
-      16: translateX(-1.6rem),
-      24: translateX(-2.4rem),
-      32: translateX(-3.2rem),
-    ),
-  )
-);
-
-@include set_classes(
-  (
     class: 'translate-x',
     properties: transform,
     pseudos: (
@@ -77,26 +60,6 @@
       16: translateX(1.6rem),
       24: translateX(2.4rem),
       32: translateX(3.2rem),
-    ),
-  )
-);
-
-@include set_classes(
-  (
-    class: '-translate-y',
-    properties: transform,
-    pseudos: (
-      hover: ':hover',
-    ),
-    values: (
-      0: translateY(-0rem),
-      2: translateY(-0.2rem),
-      4: translateY(-0.4rem),
-      8: translateY(-0.8rem),
-      12: translateY(-1.2rem),
-      16: translateY(-1.6rem),
-      24: translateY(-2.4rem),
-      32: translateY(-3.2rem),
     ),
   )
 );

@@ -2,7 +2,11 @@
   $shades: ();
 
   @each $key, $color in $map {
-    @if index((transparent, current, white, black, inherit), $key) {
+    @if index(
+      (transparent, current, white, black, inherit, current, transparent),
+      $key
+    )
+    {
       $shades: map-merge($shades, (#{$key}: #{$color}));
     } @else {
       $i: 1;
