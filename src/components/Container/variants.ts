@@ -3,6 +3,7 @@ import colors from '../../props/colors';
 import flex from '../../props/flex';
 import grid from '../../props/grid';
 import justification from '../../props/justification';
+import layout from '../../props/layout';
 import sizing from '../../props/sizing';
 import spacing from '../../props/spacing';
 import transform from '../../props/transform';
@@ -41,6 +42,7 @@ const containerVariants = cv({
     height: sizing.height,
     minHeight: sizing.minHeight,
     maxHeight: sizing.maxHeight,
+    container: layout.container,
     scale: transform.scale,
     rotate: transform.rotate,
     translateX: transform.translateX,
@@ -49,6 +51,11 @@ const containerVariants = cv({
     transitionDuration: transition.duration,
     transitionDelay: transition.delay,
     transitionTimingFunction: transition.timing,
+  },
+  defaultVariants: {
+    mx: 'auto',
+    width: 'full',
+    container: 'xs',
   },
 });
 
