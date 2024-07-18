@@ -1,6 +1,6 @@
 @include set_classes(
   (
-    class: 'd',
+    class: 'display',
     responsive: true,
     pseudos: (
       hover: ':hover',
@@ -23,7 +23,7 @@
 
 @include set_classes(
   (
-    class: 'pos',
+    class: 'position',
     properties: position,
     values: (
       sticky: sticky,
@@ -55,6 +55,7 @@
       hidden: hidden,
       scroll: scroll,
       visible: visible,
+      clip: clip,
     ),
   )
 );
@@ -68,6 +69,7 @@
       hidden: hidden,
       scroll: scroll,
       visible: visible,
+      clip: clip,
     ),
   )
 );
@@ -81,6 +83,7 @@
       hidden: hidden,
       scroll: scroll,
       visible: visible,
+      clip: clip,
     ),
   )
 );
@@ -103,13 +106,28 @@
 
 @include set_classes(
   (
-    class: 'obj-fit',
+    class: 'object-fit',
     properties: object-fit,
     values: (
       auto: auto,
       cover: cover,
       contain: contain,
       scale-down: scale-down,
+    ),
+  )
+);
+
+@include set_classes(
+  (
+    class: 'container',
+    properties: max-width,
+    values: (
+      full: '100%',
+      xs: 400px,
+      sm: 540px,
+      md: 640px,
+      lg: 800px,
+      xl: 1200px,
     ),
   )
 );

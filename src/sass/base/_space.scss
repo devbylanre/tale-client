@@ -198,7 +198,7 @@ $SPACE: (
   (
     class: 'space-y',
     responsive: true,
-    query: ':not(:first-child)',
+    query: '> *:not(:last-child)',
     properties: margin-top,
     values: $SPACE,
   )
