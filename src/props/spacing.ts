@@ -5,7 +5,7 @@ const VALUES = [
   'none',
   '2xs',
   'xs',
-  'sn',
+  'sm',
   'md',
   'lg',
   'xl',

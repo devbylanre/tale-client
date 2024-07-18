@@ -46,9 +46,14 @@ const SIZES = [
   '10/12',
   '11/12',
   'full',
-];
+] as const;
 
 const sizing = {
+  size: {
+    class: 'size',
+    responsive: true,
+    values: SIZES,
+  },
   width: {
     class: 'w',
     responsive: true,

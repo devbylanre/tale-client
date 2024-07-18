@@ -1,4 +1,3 @@
-import { tuple } from 'yup';
 import Variants from '../types/variants';
 
 const justification = {

@@ -1,10 +1,10 @@
 import Variants from '../types/variants';
 
-const shades = (array: string[]) => {
+const shades = (array: readonly string[]) => {
   const result: string[] = [];
   let i = 0;
   while (i < 12) {
-    array.map((color) => {
+    array.forEach((color) => {
       if (i < 10) {
         result.push(`${color}-${i * 10}`);
       } else {
@@ -17,7 +17,14 @@ const shades = (array: string[]) => {
   return result;
 };
 
-const SHADES = shades(['red', 'green', 'yellow', 'blue', 'orange', 'purple']);
+const SHADES = shades([
+  'red',
+  'green',
+  'yellow',
+  'blue',
+  'orange',
+  'purple',
+] as const);
 
 const colors = {
   text: {
