@@ -4,7 +4,16 @@ import Variants from '../../types/variants';
 import Polymorphic from '../../types/polymorphic';
 
 namespace Text {
-  export type Elements = 'span' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p';
+  export type Elements =
+    | 'label'
+    | 'span'
+    | 'h1'
+    | 'h2'
+    | 'h3'
+    | 'h4'
+    | 'h5'
+    | 'h6'
+    | 'p';
   export type Props<Element extends Elements> = Polymorphic.ComponentProps<
     Element,
     Variants.Props<typeof textVariants>
@@ -13,7 +22,7 @@ namespace Text {
 }
 
 const Text = React.forwardRef(
-  <Element extends Text.Elements = 'span'>(
+  <Element extends Text.Elements>(
     props: Text.Props<Element>,
     ref: Text.Ref<Element>
   ) => {
