@@ -3,6 +3,7 @@ import colors from '../../props/colors';
 import flex from '../../props/flex';
 import grid from '../../props/grid';
 import justification from '../../props/justification';
+import layout from '../../props/layout';
 import sizing from '../../props/sizing';
 import spacing from '../../props/spacing';
 import transform from '../../props/transform';
@@ -52,6 +53,10 @@ const boxVariants = cv({
     alignSelf: justification.alignSelf,
     justifySelf: justification.justifySelf,
     placeSelf: justification.placeSelf,
+    overflow: layout.overflow,
+    overflowX: layout.overflowX,
+    overflowY: layout.overflowY,
+    position: layout.position,
     scale: transform.scale,
     rotate: transform.rotate,
     translateX: transform.translateX,
