@@ -24,6 +24,7 @@ const SHADES = shades([
   'blue',
   'orange',
   'purple',
+  'primary',
 ] as const);
 
 const colors = {
