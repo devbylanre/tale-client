@@ -34,6 +34,7 @@ const Text = React.forwardRef(
       transform,
       decoration,
       listType,
+      color,
       className,
       ...rest
     } = props;
@@ -49,6 +50,7 @@ const Text = React.forwardRef(
           transform,
           decoration,
           listType,
+          color,
         })}
         {...rest}
       />
