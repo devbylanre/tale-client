@@ -22,7 +22,8 @@ const typography = {
     values: ['capitalize', 'uppercase', 'lowercase'] as const,
   },
   decoration: {
-    class: 'decoration',
+    class: 'decorate',
+    pseudos: ['hover', 'focus', 'placeholder'],
     values: ['none', 'underline', 'overline', 'through'] as const,
   },
   listType: {
