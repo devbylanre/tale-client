@@ -3,6 +3,7 @@ import colors from '../../props/colors';
 import flex from '../../props/flex';
 import grid from '../../props/grid';
 import justification from '../../props/justification';
+import layout from '../../props/layout';
 import sizing from '../../props/sizing';
 import spacing from '../../props/spacing';
 import transform from '../../props/transform';
@@ -27,6 +28,7 @@ const flexVariants = cv({
     py: spacing.paddingY,
     spaceX: spacing.spaceX,
     spaceY: spacing.spaceY,
+    display: layout.display,
     border: border.width,
     borderTop: border.top,
     borderBottom: border.bottom,
@@ -60,6 +62,11 @@ const flexVariants = cv({
     placeSelf: justification.placeSelf,
     placeContent: justification.placeContent,
     placeItems: justification.placeItems,
+    overflow: layout.overflow,
+    overflowX: layout.overflowX,
+    overflowY: layout.overflowY,
+    position: layout.position,
+    zIndex: layout.zIndex,
     scale: transform.scale,
     rotate: transform.rotate,
     translateX: transform.translateX,
@@ -68,6 +75,10 @@ const flexVariants = cv({
     transitionDuration: transition.duration,
     transitionDelay: transition.delay,
     transitionTimingFunction: transition.timing,
+  },
+
+  defaultVariants: {
+    display: 'flex',
   },
 });
 
