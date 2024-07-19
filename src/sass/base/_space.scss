@@ -21,6 +21,30 @@ $SPACE: (
 
 @include set_classes(
   (
+    class: 'mx',
+    responsive: true,
+    properties: (
+      margin-left: margin-left,
+      margin-right: margin-right,
+    ),
+    values: $SPACE,
+  )
+);
+
+@include set_classes(
+  (
+    class: 'my',
+    responsive: true,
+    properties: (
+      margin-left: margin-top,
+      margin-right: margin-bottom,
+    ),
+    values: $SPACE,
+  )
+);
+
+@include set_classes(
+  (
     class: 'm',
     responsive: true,
     properties: margin,
@@ -66,11 +90,11 @@ $SPACE: (
 
 @include set_classes(
   (
-    class: 'mx',
+    class: 'px',
     responsive: true,
     properties: (
-      margin-left: margin-left,
-      margin-right: margin-right,
+      padding-left: padding-left,
+      padding-right: padding-right,
     ),
     values: $SPACE,
   )
@@ -78,11 +102,11 @@ $SPACE: (
 
 @include set_classes(
   (
-    class: 'my',
+    class: 'py',
     responsive: true,
     properties: (
-      margin-left: margin-top,
-      margin-right: margin-bottom,
+      padding-top: padding-top,
+      padding-bottom: padding-bottom,
     ),
     values: $SPACE,
   )
@@ -135,30 +159,6 @@ $SPACE: (
 
 @include set_classes(
   (
-    class: 'px',
-    responsive: true,
-    properties: (
-      padding-left: padding-left,
-      padding-right: padding-right,
-    ),
-    values: $SPACE,
-  )
-);
-
-@include set_classes(
-  (
-    class: 'py',
-    responsive: true,
-    properties: (
-      padding-top: padding-top,
-      padding-bottom: padding-bottom,
-    ),
-    values: $SPACE,
-  )
-);
-
-@include set_classes(
-  (
     class: 'gap',
     responsive: true,
     properties: gap,
@@ -198,7 +198,7 @@ $SPACE: (
   (
     class: 'space-y',
     responsive: true,
-    query: '> *:not(:last-child)',
+    query: '> *:not(:first-child)',
     properties: margin-top,
     values: $SPACE,
   )
