@@ -18,7 +18,7 @@ const layout = {
 
   position: {
     class: 'position',
-    values: ['sticky', 'absolute', 'static', 'fixed'] as const,
+    values: ['sticky', 'absolute', 'static', 'fixed', 'relative'] as const,
   },
 
   visibility: {
