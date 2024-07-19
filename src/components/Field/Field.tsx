@@ -3,6 +3,7 @@ import Box from '../Box/Box';
 import FieldProvider from '../../contexts/FieldContext';
 import useField from '../../hooks/useField';
 import Label from '../Label/Label';
+import Flex from '../Flex/Flex';
 
 const Field = ({ children, name }: FieldProvider.Props) => {
   return (
@@ -13,12 +14,27 @@ const Field = ({ children, name }: FieldProvider.Props) => {
   );
 };
 
+const Block = React.forwardRef(
+  <E extends Box.Elements>(props: Box.Props<E>, ref: Box.Ref<E>) => {
+    const { spaceY = '2xs', ...rest } = props;
+
+    return (
+      <Box
+        ref={ref}
+        spaceY={spaceY}
+        {...rest}
+      />
+    );
+  }
+);
+
 const Segment = React.forwardRef(
   <Element extends Box.Elements>(props: Box.Props, ref: Box.Ref<Element>) => {
     const {
       border = '1',
       height = '40',
       borderRadius = 'md',
+      position = 'relative',
       borderColor = 'gray-80',
       transitionDuration = 'slow',
       transitionProperty = 'colors',
@@ -32,6 +48,7 @@ const Segment = React.forwardRef(
         ref={ref}
         height={height}
         border={border}
+        position={position}
         borderRadius={borderRadius}
         transitionProperty={transitionProperty}
         transitionDuration={transitionDuration}
@@ -43,6 +60,35 @@ const Segment = React.forwardRef(
             ? 'gray-90'
             : borderColor
         }
+        {...rest}
+      />
+    );
+  }
+);
+
+const Slot = React.forwardRef(
+  <E extends Flex.Elements>(props: Flex.Props<E>, ref: Flex.Ref<E>) => {
+    const {
+      height = 'full',
+      position = 'absolute',
+      alignItems = 'center',
+      justifyContent = 'center',
+      style,
+      ...rest
+    } = props;
+
+    const defaultStyle: React.CSSProperties = {
+      top: '0px',
+    };
+
+    return (
+      <Flex
+        ref={ref}
+        height={height}
+        position={position}
+        alignItems={alignItems}
+        justifyContent={justifyContent}
+        style={{ ...defaultStyle, ...style }}
         {...rest}
       />
     );
@@ -64,6 +110,8 @@ const LabelComponent = React.forwardRef(
   }
 );
 
+Field.Slot = Slot;
+Field.Block = Block;
 Field.Label = LabelComponent;
 Field.Segment = Segment;
 export default Field;
