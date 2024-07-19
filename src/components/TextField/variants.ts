@@ -7,6 +7,11 @@ import cv from '../../utils/cv';
 const textFieldVariants = cv({
   variants: {
     px: spacing.paddingX,
+    py: spacing.paddingY,
+    pt: spacing.paddingTop,
+    pb: spacing.paddingBottom,
+    ps: spacing.paddingStart,
+    pe: spacing.paddingEnd,
     width: sizing.width,
     height: sizing.height,
     size: typography.size,

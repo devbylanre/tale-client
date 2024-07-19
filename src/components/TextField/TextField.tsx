@@ -20,6 +20,12 @@ const TextField = React.forwardRef(
   ) => {
     const {
       as,
+      px,
+      py,
+      ps,
+      pe,
+      pt,
+      pb,
       onChange,
       onFocus,
       onBlur,
@@ -63,6 +69,12 @@ const TextField = React.forwardRef(
         onChange={handleChange}
         style={{ ...defaultStyle, ...style }}
         className={textFieldVariants({
+          px,
+          py,
+          ps,
+          pe,
+          pt,
+          pb,
           width,
           height,
           align,
