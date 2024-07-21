@@ -4,6 +4,7 @@ import FieldProvider from '../../contexts/FieldContext';
 import useField from '../../hooks/useField';
 import Label from '../Label/Label';
 import Flex from '../Flex/Flex';
+import Text from '../Text/Text';
 
 const Field = ({ children, name }: FieldProvider.Props) => {
   return (
@@ -16,7 +17,7 @@ const Field = ({ children, name }: FieldProvider.Props) => {
 
 const Block = React.forwardRef(
   <E extends Box.Elements>(props: Box.Props<E>, ref: Box.Ref<E>) => {
-    const { spaceY = '2xs', ...rest } = props;
+    const { spaceY = 'xs', ...rest } = props;
 
     return (
       <Box
@@ -34,8 +35,10 @@ const Segment = React.forwardRef(
       border = '1',
       height = '40',
       borderRadius = 'md',
+      overflow = 'hidden',
       position = 'relative',
-      borderColor = 'gray-80',
+      borderColor = 'gray-90',
+      backgroundColor = 'white',
       transitionDuration = 'slow',
       transitionProperty = 'colors',
       transitionTimingFunction = 'ease-in-out',
@@ -49,15 +52,17 @@ const Segment = React.forwardRef(
         height={height}
         border={border}
         position={position}
+        overflow={overflow}
         borderRadius={borderRadius}
+        backgroundColor={backgroundColor}
         transitionProperty={transitionProperty}
         transitionDuration={transitionDuration}
         transitionTimingFunction={transitionTimingFunction}
         borderColor={
           meta.touched && !meta.error
-            ? 'blue-90'
+            ? 'blue-60'
             : meta.error && meta.touched
-            ? 'gray-90'
+            ? 'red-60'
             : borderColor
         }
         {...rest}
@@ -110,8 +115,28 @@ const LabelComponent = React.forwardRef(
   }
 );
 
+const Message = React.forwardRef(
+  <E extends Text.Elements>(props: Text.Props<E>, ref: Text.Ref<E>) => {
+    const { meta } = useField();
+    const { as = 'p', size = 14, color, children, ...rest } = props;
+
+    return (
+      <Text
+        as={as}
+        ref={ref}
+        size={size}
+        color={meta.error ? 'red-60' : color}
+        {...rest}
+      >
+        {meta.error && meta.touched ? meta.error : children}
+      </Text>
+    );
+  }
+);
+
 Field.Slot = Slot;
 Field.Block = Block;
 Field.Label = LabelComponent;
 Field.Segment = Segment;
+Field.Message = Message;
 export default Field;
