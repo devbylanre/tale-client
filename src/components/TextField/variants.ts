@@ -24,6 +24,7 @@ const textFieldVariants = cv({
 
   defaultVariants: {
     px: 'sm',
+    size: 16,
     width: 'full',
     height: 'full',
     color: 'gray-10',
