@@ -1,7 +1,7 @@
-type Pseudos = 'hover' | 'active' | 'focus' | 'placeholder';
-type Breakpoints = 'initial' | 'sm' | 'md' | 'lg' | 'xl';
-
 namespace Variants {
+  export type Pseudos = 'hover' | 'active' | 'focus' | 'placeholder';
+  export type Breakpoints = 'initial' | 'sm' | 'md' | 'lg' | 'xl';
+
   export type Config = {
     class: string;
     pseudos?: Pseudos[];
