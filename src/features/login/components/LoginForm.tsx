@@ -5,7 +5,7 @@ import Box from '../../../components/Box/Box';
 import Field from '../../../components/Field/Field';
 import TextField from '../../../components/TextField/TextField';
 import { useMutation } from '@apollo/client';
-import auth from '../../../api/auth';
+import auth from '../../../apis/auth';
 import Button from '../../../components/Button/Button';
 import Alert from '../../../components/Alert/Alert';
 import Text from '../../../components/Text/Text';
