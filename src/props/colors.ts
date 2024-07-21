@@ -1,70 +1,118 @@
 import Variants from '../types/variants';
 
-const shades = (array: readonly string[]) => {
-  const result: string[] = [];
-  let i = 0;
-  while (i < 12) {
-    array.forEach((color) => {
-      if (i < 10) {
-        result.push(`${color}-${i * 10}`);
-      } else {
-        result.push(`${color}-${i * 5}`);
-      }
-    });
-    i += 1;
-  }
-
-  return result;
-};
-
-const SHADES = shades([
-  'red',
-  'green',
-  'yellow',
-  'blue',
-  'orange',
-  'purple',
-  'primary',
-] as const);
+const SHADES = [
+  'red-10',
+  'red-20',
+  'red-30',
+  'red-40',
+  'red-50',
+  'red-60',
+  'red-70',
+  'red-80',
+  'red-90',
+  'red-95',
+  'red-100',
+  'green-10',
+  'green-20',
+  'green-30',
+  'green-40',
+  'green-50',
+  'green-60',
+  'green-70',
+  'green-80',
+  'green-90',
+  'green-95',
+  'green-100',
+  'gray-10',
+  'gray-20',
+  'gray-30',
+  'gray-40',
+  'gray-50',
+  'gray-60',
+  'gray-70',
+  'gray-80',
+  'gray-90',
+  'gray-95',
+  'gray-100',
+  'yellow-10',
+  'yellow-20',
+  'yellow-30',
+  'yellow-40',
+  'yellow-50',
+  'yellow-60',
+  'yellow-70',
+  'yellow-80',
+  'yellow-90',
+  'yellow-95',
+  'yellow-100',
+  'blue-10',
+  'blue-20',
+  'blue-30',
+  'blue-40',
+  'blue-50',
+  'blue-60',
+  'blue-70',
+  'blue-80',
+  'blue-90',
+  'blue-95',
+  'blue-100',
+  'orange-10',
+  'orange-20',
+  'orange-30',
+  'orange-40',
+  'orange-50',
+  'orange-60',
+  'orange-70',
+  'orange-80',
+  'orange-90',
+  'orange-95',
+  'orange-100',
+  'purple-10',
+  'purple-20',
+  'purple-30',
+  'purple-40',
+  'purple-50',
+  'purple-60',
+  'purple-70',
+  'purple-80',
+  'purple-90',
+  'purple-95',
+  'purple-100',
+  'primary-10',
+  'primary-20',
+  'primary-30',
+  'primary-40',
+  'primary-50',
+  'primary-60',
+  'primary-70',
+  'primary-80',
+  'primary-90',
+  'primary-95',
+  'primary-100',
+  'black',
+  'white',
+  'inherit',
+  'transparent',
+  'current',
+] as const;
 
 const colors = {
   text: {
     class: 'color',
     pseudos: ['active', 'focus', 'hover', 'placeholder'],
-    values: [
-      ...SHADES,
-      'black',
-      'white',
-      'current',
-      'transparent',
-      'inherit',
-    ] as const,
+    values: SHADES,
   },
 
   background: {
     class: 'bg',
     pseudos: ['active', 'focus', 'hover', 'placeholder'],
-    values: [
-      ...SHADES,
-      'black',
-      'white',
-      'current',
-      'transparent',
-      'inherit',
-    ] as const,
+    values: SHADES,
   },
 
   border: {
     class: 'border',
     pseudos: ['active', 'focus', 'hover', 'placeholder'],
-    values: [
-      ...SHADES,
-      'black',
-      'white',
-      'current',
-      'transparent',
-      'inherit',
-    ] as const,
+    values: SHADES,
   },
 } satisfies Variants.Map;
 
