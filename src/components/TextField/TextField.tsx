@@ -41,7 +41,7 @@ const TextField = React.forwardRef(
       ...rest
     } = props;
     const Component = (as || 'input') as React.ElementType;
-    const { helper } = useField();
+    const { field, helper } = useField();
 
     const handleChange = (e: any) => {
       helper.setValue(e.target.value);
@@ -64,6 +64,8 @@ const TextField = React.forwardRef(
     return (
       <Component
         ref={ref}
+        id={field.name}
+        name={field.name}
         onBlur={handleBlur}
         onFocus={handleFocus}
         onChange={handleChange}
