@@ -6,7 +6,7 @@ import Box from '../../../components/Box/Box';
 import { TbEye, TbEyeClosed } from 'react-icons/tb';
 import Button from '../../../components/Button/Button';
 import { useMutation } from '@apollo/client';
-import auth from '../../../api/auth';
+import auth from '../../../apis/auth';
 import * as Yup from 'yup';
 import Alert from '../../../components/Alert/Alert';
 import Text from '../../../components/Text/Text';
