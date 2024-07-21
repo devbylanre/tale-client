@@ -1,6 +1,7 @@
 @include set_classes(
   (
     class: 'opacity',
+    properties: opacity,
     pseudos: (
       hover: ':hover',
     ),
