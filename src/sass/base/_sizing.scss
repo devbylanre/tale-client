@@ -122,9 +122,9 @@ $SIZING: (
         $SIZING,
         (
           screen: 100vh,
-          svw: 100svh,
-          lvw: 100lvh,
-          dvw: 100dvh,
+          svh: 100svh,
+          lvh: 100lvh,
+          dvh: 100dvh,
         )
       ),
   )
@@ -132,7 +132,7 @@ $SIZING: (
 
 @include set_classes(
   (
-    class: 'mn-h',
+    class: 'min-h',
     responsive: true,
     properties: min-height,
     values:
@@ -140,9 +140,9 @@ $SIZING: (
         $SIZING,
         (
           screen: 100vh,
-          svw: 100svh,
-          lvw: 100lvh,
-          dvw: 100dvh,
+          svh: 100svh,
+          lvh: 100lvh,
+          dvh: 100dvh,
         )
       ),
   )
@@ -158,9 +158,9 @@ $SIZING: (
         $SIZING,
         (
           screen: 100vh,
-          svw: 100svh,
-          lvw: 100lvh,
-          dvw: 100dvh,
+          svh: 100svh,
+          lvh: 100lvh,
+          dvh: 100dvh,
         )
       ),
   )
