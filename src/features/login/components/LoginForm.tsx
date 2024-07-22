@@ -5,7 +5,7 @@ import Box from '../../../components/Box/Box';
 import Field from '../../../components/Field/Field';
 import TextField from '../../../components/TextField/TextField';
 import { useMutation } from '@apollo/client';
-import auth from '../../../apis/auth';
+import authApi from '../../../apis/authApi';
 import Button from '../../../components/Button/Button';
 import Alert from '../../../components/Alert/Alert';
 import Text from '../../../components/Text/Text';
@@ -19,7 +19,7 @@ const validationSchema = Yup.object().shape({
     .required('Account email address'),
   password: Yup.string()
     .required('Password is required')
-    // .matches(/[A-Z]/, 'Password must contain at least one uppercase letter')
+    .matches(/[A-Z]/, 'Password must contain at least one uppercase letter')
     .matches(/[a-z]/, 'Password must contain at least one lowercase letter')
     .matches(/[0-9]/, 'Password must contain at least one number')
     .matches(
@@ -30,7 +30,7 @@ const validationSchema = Yup.object().shape({
 
 const LoginForm = () => {
   const navigate = useNavigate();
-  const [signIn, { loading, error }] = useMutation(auth.login, {
+  const [signIn, { loading, error }] = useMutation(authApi.login, {
     onError: (error) => console.log(error),
     onCompleted({ signIn }) {
       navigate('/app/');
