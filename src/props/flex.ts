@@ -35,7 +35,7 @@ const flex = {
   flex: {
     class: 'flex',
     responsive: true,
-    values: ['none', 'full', 'auto', 'initial'],
+    values: ['none', 'full', 'auto', 'initial'] as const,
   },
 } satisfies Variants.Map;
 
