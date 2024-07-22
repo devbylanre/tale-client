@@ -14,6 +14,13 @@ namespace Button {
 const Button = React.forwardRef((props: Button.Props, ref: Button.Ref) => {
   const {
     as,
+    p,
+    pe,
+    ps,
+    pt,
+    pb,
+    px,
+    py,
     size,
     weight,
     align,
@@ -43,6 +50,13 @@ const Button = React.forwardRef((props: Button.Props, ref: Button.Ref) => {
       ref={ref}
       disabled={disabled}
       className={buttonVariants({
+        p,
+        pe,
+        ps,
+        pt,
+        pb,
+        px,
+        py,
         size,
         weight,
         align,

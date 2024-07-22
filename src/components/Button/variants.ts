@@ -5,12 +5,20 @@ import interaction from '../../props/interaction';
 import justification from '../../props/justification';
 import layout from '../../props/layout';
 import sizing from '../../props/sizing';
+import spacing from '../../props/spacing';
 import transition from '../../props/transition';
 import typography from '../../props/typography';
 import cv from '../../utils/cv';
 
 const buttonVariants = cv({
   variants: {
+    p: spacing.padding,
+    ps: spacing.paddingStart,
+    pe: spacing.paddingEnd,
+    pt: spacing.paddingTop,
+    pb: spacing.paddingBottom,
+    px: spacing.paddingX,
+    py: spacing.paddingY,
     size: typography.size,
     weight: typography.weight,
     align: typography.align,
@@ -35,6 +43,7 @@ const buttonVariants = cv({
   },
 
   defaultVariants: {
+    px: 'lg',
     size: 16,
     height: '40',
     color: 'white',
