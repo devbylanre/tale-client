@@ -34,8 +34,9 @@ const Flex = React.forwardRef(
       pe,
       pt,
       pb,
-      spaceX,
-      spaceY,
+      gap,
+      gapX,
+      gapY,
       display,
       border,
       borderTop,
@@ -77,6 +78,8 @@ const Flex = React.forwardRef(
       transitionDelay,
       transitionTimingFunction,
       transitionDuration,
+      pseudos,
+      className,
       ...rest
     } = props;
     const Component = (as || 'div') as React.ElementType;
@@ -99,8 +102,9 @@ const Flex = React.forwardRef(
           pe,
           pt,
           pb,
-          spaceX,
-          spaceY,
+          gap,
+          gapX,
+          gapY,
           display,
           border,
           borderTop,
@@ -142,6 +146,8 @@ const Flex = React.forwardRef(
           transitionDelay,
           transitionTimingFunction,
           transitionDuration,
+          pseudos,
+          className,
         })}
         {...rest}
       />
