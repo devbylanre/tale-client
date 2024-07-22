@@ -79,6 +79,10 @@ const cv = <Map extends Variants.Map>(args: {
       });
     }
 
+    if (className !== undefined) {
+      classes.push(className);
+    }
+
     return classes.length > 0 ? classes.join(' ').toString() : undefined;
   };
 };
