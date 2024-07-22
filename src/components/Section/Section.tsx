@@ -4,7 +4,13 @@ import Variants from '../../types/variants';
 import sectionVariants from './variants';
 
 namespace Section {
-  export type Elements = 'div' | 'span' | 'main' | 'footer' | 'header';
+  export type Elements =
+    | 'div'
+    | 'section'
+    | 'span'
+    | 'main'
+    | 'footer'
+    | 'header';
   export type Props<Element extends Elements = 'div'> =
     Polymorphic.ComponentPropsWithRef<
       Element,
@@ -59,7 +65,7 @@ const Section = React.forwardRef(
       transitionDuration,
       ...rest
     } = props;
-    const Component = (as || 'div') as React.ElementType;
+    const Component = (as || 'section') as React.ElementType;
 
     return (
       <Component
