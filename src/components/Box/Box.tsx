@@ -67,6 +67,7 @@ const Box = React.forwardRef(
       transitionDelay,
       transitionTimingFunction,
       transitionDuration,
+      className,
       ...rest
     } = props;
     const Component = (as || 'div') as React.ElementType;
@@ -122,6 +123,7 @@ const Box = React.forwardRef(
           transitionDelay,
           transitionTimingFunction,
           transitionDuration,
+          className,
         })}
         {...rest}
       />
