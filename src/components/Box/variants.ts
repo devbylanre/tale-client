@@ -36,6 +36,7 @@ const boxVariants = cv({
     borderRadius: border.radius,
     borderColor: colors.border,
     backgroundColor: colors.background,
+    size: sizing.size,
     width: sizing.width,
     minWidth: sizing.minWidth,
     maxWidth: sizing.maxWidth,
