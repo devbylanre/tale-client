@@ -11,7 +11,7 @@
     } @else {
       $i: 1;
       @while $i <= 11 {
-        $lightness: if($i == 6, 0%, ($i - 6) * 8.75%);
+        $lightness: if($i == 6, 0%, ($i - 6) * 8.5%);
         $amount: if($i < 10, $i * 10, if($i == 10, 95, 100));
         $newColor: adjust-color($color, $lightness: $lightness);
 

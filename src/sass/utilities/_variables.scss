@@ -11,13 +11,16 @@ $variables: (
 
   font-size: 1rem,
   font-weight: 100,
+
+  sidebar-panel: 28rem,
+  details-panel: 32rem,
 );
 
 $breakpoints: (
-  xs: 56rem,
-  sm: 64rem,
-  md: 80rem,
-  lg: 102rem,
+  xs: 40rem,
+  sm: 60rem,
+  md: 71rem,
+  lg: 80rem,
 );
 
 $colors: (
@@ -25,7 +28,7 @@ $colors: (
   black: #000,
   current: currentColor,
   inherit: inherit,
-  gray: #87838f,
+  gray: #868293,
   red: #e10f0f,
   blue: #0a1af3,
   green: #12da3a,
