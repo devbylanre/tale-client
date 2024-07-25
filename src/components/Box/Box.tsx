@@ -44,6 +44,7 @@ const Box = React.forwardRef(
       borderColor,
       borderRadius,
       backgroundColor,
+      size,
       width,
       minWidth,
       maxWidth,
@@ -67,6 +68,7 @@ const Box = React.forwardRef(
       transitionDelay,
       transitionTimingFunction,
       transitionDuration,
+      pseudos,
       className,
       ...rest
     } = props;
@@ -100,6 +102,7 @@ const Box = React.forwardRef(
           borderRadius,
           borderColor,
           backgroundColor,
+          size,
           width,
           minWidth,
           maxWidth,
@@ -123,6 +126,7 @@ const Box = React.forwardRef(
           transitionDelay,
           transitionTimingFunction,
           transitionDuration,
+          pseudos,
           className,
         })}
         {...rest}
