@@ -7,7 +7,6 @@ const sortVariants = (props: {
   classes: string[];
 }) => {
   const { variant, pseudo, values, classes } = props;
-
   let result = '';
 
   if (values !== undefined) {
@@ -16,10 +15,10 @@ const sortVariants = (props: {
         result = `${pseudo ? pseudo + ':' : ''}${variant.class}-${values}`;
         classes.push(result);
       } else {
-        Object.entries(values).forEach(([key, value]) => {
-          result = `${pseudo ? pseudo + ':' : ''}:${key}:${
-            variant.class
-          }-${value}`;
+        Object.entries(values).forEach(([breakpoint, value]) => {
+          result = `${pseudo ? pseudo + ':' : ''}${
+            breakpoint === 'initial' ? '' : breakpoint + ':'
+          }${variant.class}-${value}`;
           classes.push(result);
         });
       }
