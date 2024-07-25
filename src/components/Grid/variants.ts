@@ -3,6 +3,7 @@ import colors from '../../props/colors';
 import flex from '../../props/flex';
 import grid from '../../props/grid';
 import justification from '../../props/justification';
+import layout from '../../props/layout';
 import sizing from '../../props/sizing';
 import spacing from '../../props/spacing';
 import transform from '../../props/transform';
@@ -25,8 +26,11 @@ const gridVariants = cv({
     ps: spacing.paddingStart,
     px: spacing.paddingX,
     py: spacing.paddingY,
-    spaceX: spacing.spaceX,
-    spaceY: spacing.spaceY,
+    gap: spacing.gap,
+    gapX: spacing.gapX,
+    gapY: spacing.gapY,
+    display: layout.display,
+    position: layout.position,
     border: border.width,
     borderTop: border.top,
     borderBottom: border.bottom,
@@ -68,6 +72,10 @@ const gridVariants = cv({
     transitionDuration: transition.duration,
     transitionDelay: transition.delay,
     transitionTimingFunction: transition.timing,
+  },
+
+  defaultVariants: {
+    display: 'grid',
   },
 });
 
