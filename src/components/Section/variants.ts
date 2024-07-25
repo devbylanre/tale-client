@@ -1,5 +1,6 @@
 import border from '../../props/border';
 import colors from '../../props/colors';
+import layout from '../../props/layout';
 import sizing from '../../props/sizing';
 import spacing from '../../props/spacing';
 import transform from '../../props/transform';
@@ -22,6 +23,7 @@ const sectionVariants = cv({
     ps: spacing.paddingStart,
     px: spacing.paddingX,
     py: spacing.paddingY,
+    display: layout.display,
     spaceX: spacing.spaceX,
     spaceY: spacing.spaceY,
     border: border.width,
