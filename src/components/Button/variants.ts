@@ -19,6 +19,7 @@ const buttonVariants = cv({
     pb: spacing.paddingBottom,
     px: spacing.paddingX,
     py: spacing.paddingY,
+    gap: spacing.gap,
     size: typography.size,
     weight: typography.weight,
     align: typography.align,
@@ -45,6 +46,7 @@ const buttonVariants = cv({
   defaultVariants: {
     px: 'lg',
     size: 16,
+    gap: 'sm',
     height: '40',
     color: 'white',
     cursor: 'pointer',
