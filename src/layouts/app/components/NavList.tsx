@@ -12,6 +12,7 @@ type NavListProps = {
 const NavList = ({ nav }: NavListProps) => {
   return (
     <Link
+      end={true}
       to={nav.url}
       key={nav.name}
       pseudos={{ hover: { color: 'inherit' } }}
@@ -23,14 +24,23 @@ const NavList = ({ nav }: NavListProps) => {
           height={'32'}
           width={'full'}
           alignItems={'center'}
-          pseudos={{ hover: { backgroundColor: 'gray-95' } }}
+          backgroundColor={isActive ? 'primary-95' : 'transparent'}
+          pseudos={{
+            hover: { backgroundColor: isActive ? 'primary-90' : 'gray-95' },
+          }}
         >
           <Icon
             size={'20'}
-            color={'gray-50'}
             iconType={nav.icon}
+            color={isActive ? 'primary-50' : 'gray-50'}
           />
-          <Text color={'gray-40'}>{nav.name}</Text>
+          <Text
+            size={14}
+            weight={500}
+            color={isActive ? 'primary-40' : 'gray-40'}
+          >
+            {nav.name}
+          </Text>
         </Flex>
       )}
     </Link>

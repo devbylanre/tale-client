@@ -15,19 +15,24 @@ const SideBar = () => {
 
   return (
     <Section
-      transitionProperty={'all'}
-      transitionDuration={'slower'}
-      transitionTimingFunction={'ease-in-out'}
-      style={{ opacity: user ? 1 : 0 }}
+      display={{ initial: 'none', lg: 'block' }}
+      style={{
+        zIndex: 1,
+        position: 'fixed',
+        opacity: user ? 1 : 0,
+        width: 'var(--sidebar-panel)',
+      }}
     >
       <Container container={'full'}>
         <Flex
-          width={'280'}
           borderRight={'1'}
           minHeight={'screen'}
           borderColor={'gray-95'}
-          flexDirection={'column'}
+          transitionProperty={'all'}
           backgroundColor={'gray-100'}
+          transitionDuration={'slower'}
+          transitionTimingFunction={'ease-in-out'}
+          flexDirection={'column'}
         >
           <Flex
             px={'lg'}
