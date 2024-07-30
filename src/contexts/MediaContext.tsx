@@ -1,33 +1,40 @@
 import React, { createContext, useReducer } from 'react';
 import Media from '../types/media';
 
-const reducer = (state: Media.State, action: Media.Action): Media.State => {
+const initialState: Media.State = {
+  medias: [],
+  media: null,
+};
+
+const reducer = (
+  state: Media.State = initialState,
+  action: Media.Action
+): Media.State => {
   switch (action.type) {
     case 'CREATE':
-      return { medias: [...state.medias, action.payload] };
+      return { medias: [...state.medias, action.payload], media: null };
     case 'UPDATE':
       return {
         medias: state.medias.map((media) =>
           media._id === action.payload._id ? action.payload : media
         ),
+        media: null,
       };
     case 'DELETE':
       return {
         medias: state.medias.filter(
           (media) => media._id !== action.payload._id
         ),
+        media: null,
       };
     case 'READ_MULTIPLE':
       return {
         medias: [...action.payload],
+        media: null,
       };
     case 'READ_SINGLE':
-      return { medias: [action.payload] };
+      return { medias: [...state.medias], media: action.payload };
   }
-};
-
-const initialState: Media.State = {
-  medias: [],
 };
 
 export const MediaContext = createContext<Media.Context | null>(null);
