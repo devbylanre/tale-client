@@ -18,7 +18,7 @@ namespace Media {
     | { type: 'READ_SINGLE'; payload: Type };
 
   export type State = {
-    medias: Type[] | null;
+    medias: Type[];
   };
 
   export type Context = {
