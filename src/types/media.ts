@@ -19,6 +19,7 @@ namespace Media {
 
   export type State = {
     medias: Type[];
+    media: Type | null;
   };
 
   export type Context = {
