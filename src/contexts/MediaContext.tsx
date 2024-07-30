@@ -30,7 +30,7 @@ const initialState: Media.State = {
   medias: [],
 };
 
-const MediaContext = createContext<Media.Context | null>(null);
+export const MediaContext = createContext<Media.Context | null>(null);
 
 const MediaProvider = ({ children }: React.PropsWithChildren) => {
   const [state, dispatch] = useReducer(reducer, initialState);
