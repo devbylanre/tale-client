@@ -1,36 +1,36 @@
 import React, { useState } from 'react';
-import Grid from '../../../components/Grid/Grid';
 import Box from '../../../components/Box/Box';
 import Flex from '../../../components/Flex/Flex';
 import Text from '../../../components/Text/Text';
 import Button from '../../../components/Button/Button';
 import Icon from '../../../components/Icon/Icon';
 import { TbDots } from 'react-icons/tb';
+import useMedia from '../../../hooks/useMedia';
+import filer from '../../../utils/file';
 
 const List = () => {
+  const { medias } = useMedia();
   const [selectedFile, setSelectedFile] = useState(-1);
 
   return (
-    <Grid
-      p={'lg'}
-      gap={'lg'}
-      gridColumn={'4'}
-    >
-      {Array.from('abcdefghi').map((char, index) => (
+    <React.Fragment>
+      {medias.map((media, index) => (
         <Box
-          key={char}
+          key={media.hash}
           overflow={'hidden'}
           borderRadius={'xl'}
           position={'relative'}
-          onMouseOver={() => setSelectedFile(index)}
           onMouseLeave={() => setSelectedFile(-1)}
+          onMouseOut={() => setSelectedFile(index)}
+          onMouseEnter={() => setSelectedFile(index)}
+          onMouseOver={() => setSelectedFile(index)}
           backgroundColor={'gray-100'}
           style={{
             cursor: 'pointer',
             aspectRatio: '1/1',
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
-            backgroundImage: 'url("/assets/images/dummy.jpg")',
+            backgroundImage: `url(${media.uri})`,
           }}
         >
           <Flex
@@ -45,8 +45,10 @@ const List = () => {
             style={{
               bottom: '0rem',
               transition: 'all 0.3s ease-in-out',
-              background:
-                'linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.8))',
+              backgroundImage:
+                index === selectedFile
+                  ? 'linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.4))'
+                  : 'linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.35))',
             }}
           >
             <Flex
@@ -55,11 +57,11 @@ const List = () => {
             >
               <Text
                 as={'h3'}
-                size={14}
                 weight={400}
                 color={'white'}
+                transform={'capitalize'}
               >
-                Nature
+                {filer.normalName(media.name, 8)}
               </Text>
 
               <Button
@@ -67,15 +69,15 @@ const List = () => {
                 width={'24'}
                 height={'24'}
                 borderRadius={'max'}
-                backgroundColor={'gray-95'}
-                pseudos={{ hover: { backgroundColor: 'gray-90' } }}
+                backgroundColor={'gray-80'}
+                pseudos={{ hover: { backgroundColor: 'gray-70' } }}
                 style={{
                   opacity: index === selectedFile ? 1 : 0,
                 }}
               >
                 <Icon
                   size={'full'}
-                  color={'gray-40'}
+                  color={'white'}
                   iconType={TbDots}
                 />
               </Button>
@@ -106,7 +108,7 @@ const List = () => {
           </Flex>
         </Box>
       ))}
-    </Grid>
+    </React.Fragment>
   );
 };
 
