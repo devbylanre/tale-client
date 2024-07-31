@@ -4,39 +4,48 @@ import Container from '../../components/Container/Container';
 import Flex from '../../components/Flex/Flex';
 import Header from './components/Header';
 import Box from '../../components/Box/Box';
-import ListMediaFeature from '../listMedia/Feature';
+import MediaListFeature from '../mediaList/Feature';
 import MediaDetailFeature from '../mediaDetail/Feature';
-import MediaUploadFeature from '../mediaUpload/Feature';
+import useMedia from '../../hooks/useMedia';
 
 const MediasFeature = () => {
+  const { media } = useMedia();
+
   return (
     <Section>
       <Container container={'full'}>
-        <Flex>
-          <Box style={{ width: 'calc(100% - var(--details-panel))' }}>
-            <Header />
-            <ListMediaFeature />
-            <Box
-              borderTop={'1'}
-              borderColor={'gray-90'}
-              mt={'5xl'}
-            >
-              <MediaUploadFeature />
-            </Box>
-          </Box>
-
-          <Flex
+        <Box
+          style={{
+            width: media ? 'calc(100% - var(--details-panel))' : '100%',
+            transition: 'width .3s ease-in-out',
+          }}
+        >
+          <Header />
+          <MediaListFeature
             p={'lg'}
-            height={'full'}
-            borderLeft={'1'}
-            position={'fixed'}
-            borderColor={'gray-95'}
-            flexDirection={'column'}
-            // backgroundColor={'white'}
-            style={{ right: '0rem', width: 'var(--details-panel)' }}
-          >
-            <MediaDetailFeature />
-          </Flex>
+            gap={'sm'}
+            gridColumn={media ? '5' : '6'}
+            style={{ transition: 'all .3 ease-in-out' }}
+          />
+        </Box>
+
+        <Flex
+          p={'lg'}
+          height={'full'}
+          borderLeft={'1'}
+          position={'fixed'}
+          borderColor={'gray-95'}
+          flexDirection={'column'}
+          backgroundColor={'white'}
+          style={{
+            top: '0rem',
+            right: '0rem',
+            width: 'var(--details-panel)',
+            transform: `translateX(${media ? '0rem' : '32rem'})`,
+            transition: 'transform .3s ease-in-out',
+          }}
+        >
+          <MediaDetailFeature />
         </Flex>
       </Container>
     </Section>
