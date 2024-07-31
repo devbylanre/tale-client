@@ -1,9 +1,12 @@
 import React from 'react';
 import Box from '../../../components/Box/Box';
 import Text from '../../../components/Text/Text';
-import Flex from '../../../components/Flex/Flex';
+import useMedia from '../../../hooks/useMedia';
+import Info from './Info';
 
 const Information = () => {
+  const { media } = useMedia();
+
   return (
     <Box
       mt={'3xl'}
@@ -19,25 +22,26 @@ const Information = () => {
         mt={'md'}
         spaceY={'sm'}
       >
-        {Array.from('abcd').map((char) => (
-          <Flex
-            key={char}
-            justifyContent={'between'}
-          >
-            <Text
-              size={14}
-              weight={500}
-            >
-              File type
-            </Text>
-            <Text
-              size={14}
-              weight={500}
-            >
-              .JPG
-            </Text>
-          </Flex>
-        ))}
+        {media ? (
+          <React.Fragment>
+            <Info
+              title='Date added'
+              body={new Date(media.createdAt).toLocaleString('default', {
+                month: 'short',
+                day: '2-digit',
+                year: '2-digit',
+              })}
+            />
+            <Info
+              title='Size'
+              body={`${String((media.size / 1024 ** 2).toFixed(2))} MB`}
+            />
+            <Info
+              title='Alt text'
+              body={media.alt ? media.alt : undefined}
+            />
+          </React.Fragment>
+        ) : null}
       </Box>
     </Box>
   );
