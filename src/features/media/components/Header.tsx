@@ -3,7 +3,7 @@ import Text from '../../../components/Text/Text';
 import Flex from '../../../components/Flex/Flex';
 import Button from '../../../components/Button/Button';
 import Icon from '../../../components/Icon/Icon';
-import { TbCloudUpload } from 'react-icons/tb';
+import { TbPlus } from 'react-icons/tb';
 
 const Header = () => {
   return (
@@ -25,13 +25,17 @@ const Header = () => {
       </Text>
 
       <Button
-        size={16}
+        px={'md'}
+        size={14}
+        gap={'xs'}
+        weight={500}
         height={'32'}
-        borderRadius={'max'}
+        borderRadius={'lg'}
       >
         <Icon
           size={20}
-          iconType={TbCloudUpload}
+          iconType={TbPlus}
+          style={{ strokeWidth: '2.5px' }}
         />
         Upload
       </Button>

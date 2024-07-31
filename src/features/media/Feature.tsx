@@ -1,22 +1,23 @@
 import React from 'react';
-import Section from '../../components/Section/Section';
-import Container from '../../components/Container/Container';
-import Flex from '../../components/Flex/Flex';
 import Header from './components/Header';
 import Box from '../../components/Box/Box';
+import Flex from '../../components/Flex/Flex';
+import { useSearchParams } from 'react-router-dom';
 import MediaListFeature from '../mediaList/Feature';
+import Section from '../../components/Section/Section';
 import MediaDetailFeature from '../mediaDetail/Feature';
-import useMedia from '../../hooks/useMedia';
+import Container from '../../components/Container/Container';
 
 const MediasFeature = () => {
-  const { media } = useMedia();
+  const [searchParams] = useSearchParams();
+  const ID = searchParams.get('mediaId');
 
   return (
     <Section>
       <Container container={'full'}>
         <Box
           style={{
-            width: media ? 'calc(100% - var(--details-panel))' : '100%',
+            width: ID ? 'calc(100% - var(--details-panel))' : '100%',
             transition: 'width .3s ease-in-out',
           }}
         >
@@ -24,7 +25,7 @@ const MediasFeature = () => {
           <MediaListFeature
             p={'lg'}
             gap={'sm'}
-            gridColumn={media ? '5' : '6'}
+            gridColumn={ID ? '5' : '6'}
             style={{ transition: 'all .3 ease-in-out' }}
           />
         </Box>
@@ -41,8 +42,8 @@ const MediasFeature = () => {
             top: '0rem',
             right: '0rem',
             width: 'var(--details-panel)',
-            transform: `translateX(${media ? '0rem' : '32rem'})`,
             transition: 'transform .3s ease-in-out',
+            transform: `translateX(${ID ? '0rem' : 'var(--details-panel)'})`,
           }}
         >
           <MediaDetailFeature />
