@@ -26,8 +26,6 @@ const ListMediaFeature = (props: ListMediaFeatureProps) => {
     }
   );
 
-  console.log({ error });
-
   switch (true) {
     case loading:
       return (
