@@ -2,36 +2,45 @@ import React from 'react';
 import Flex from '../../../components/Flex/Flex';
 import Box from '../../../components/Box/Box';
 import Text from '../../../components/Text/Text';
+import { IconType } from 'react-icons';
+import Icon from '../../../components/Icon/Icon';
 
 type InfoProps = {
   title: string;
   body?: string;
+  iconType: IconType;
 };
 
-const Info = ({ title, body }: InfoProps) => {
+const Info = ({ title, body, iconType }: InfoProps) => {
   return (
     <Flex
-      gapX={'xl'}
+      gapX={'sm'}
+      alignItems={'center'}
       justifyContent={'between'}
     >
-      <Box flexBasis={'5/12'}>
+      <Icon
+        size={'20'}
+        color={'gray-40'}
+        iconType={iconType}
+        style={{ strokeWidth: '1.5px' }}
+      />
+      <Box flex={'full'}>
         <Text
-          size={14}
+          size={13}
           weight={500}
           transform={'capitalize'}
         >
           {title}
         </Text>
+        <Text
+          as={'p'}
+          size={13}
+          weight={500}
+          color={'gray-50'}
+        >
+          {body ? body : 'Not available'}
+        </Text>
       </Box>
-      <Text
-        as={'p'}
-        size={14}
-        weight={500}
-        align={'right'}
-        color={'gray-60'}
-      >
-        {body ? body : 'Not available'}
-      </Text>
     </Flex>
   );
 };

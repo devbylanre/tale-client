@@ -19,16 +19,52 @@ const Base = () => {
 
   return (
     <React.Fragment>
-      <Flex justifyContent={'center'}>
+      <Flex
+        alignItems={'center'}
+        justifyContent={'between'}
+      >
+        <Flex
+          p={'xs'}
+          gapX={'xs'}
+          borderRadius={'max'}
+          alignItems={'center'}
+          backgroundColor={'gray-95'}
+        >
+          {Array.from(['about', 'update', 'delete']).map((action) => (
+            <Button
+              px={'md'}
+              py={'sm'}
+              size={13}
+              gap={'xs'}
+              key={action}
+              weight={500}
+              width={'fit'}
+              height={'fit'}
+              borderRadius={'max'}
+              transform={'capitalize'}
+              color={action === 'about' ? 'white' : 'gray-50'}
+              backgroundColor={action === 'about' ? 'gray-60' : 'inherit'}
+              pseudos={{
+                hover: {
+                  backgroundColor: action === 'about' ? 'gray-70' : 'gray-90',
+                },
+              }}
+            >
+              {action}
+            </Button>
+          ))}
+        </Flex>
+
         <Button
-          px={'md'}
           gap={'xs'}
-          width={'fit'}
-          height={'24'}
+          px={'none'}
+          width={'32'}
+          height={'32'}
+          color={'gray-60'}
           borderRadius={'max'}
           onClick={handleClear}
-          backgroundColor={'gray-70'}
-          pseudos={{ hover: { backgroundColor: 'gray-80' } }}
+          backgroundColor={'gray-95'}
+          pseudos={{ hover: { backgroundColor: 'gray-90' } }}
         >
           <Icon
             size={20}
@@ -50,9 +86,8 @@ const Base = () => {
           style={{ objectFit: 'cover', aspectRatio: '1/1' }}
         />
         <Text
-          as={'h3'}
-          weight={400}
-          align={'center'}
+          weight={500}
+          transform={'capitalize'}
         >
           {media ? media.name : ''}
         </Text>

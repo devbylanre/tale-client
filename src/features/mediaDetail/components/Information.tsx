@@ -3,6 +3,7 @@ import Box from '../../../components/Box/Box';
 import Text from '../../../components/Text/Text';
 import useMedia from '../../../hooks/useMedia';
 import Info from './Info';
+import { TbClockDown, TbTextCaption, TbFileAnalytics } from 'react-icons/tb';
 
 const Information = () => {
   const { media } = useMedia();
@@ -25,6 +26,7 @@ const Information = () => {
         {media ? (
           <React.Fragment>
             <Info
+              iconType={TbClockDown}
               title='Date added'
               body={new Date(media.createdAt).toLocaleString('default', {
                 month: 'short',
@@ -33,10 +35,12 @@ const Information = () => {
               })}
             />
             <Info
+              iconType={TbFileAnalytics}
               title='Size'
               body={`${String((media.size / 1024 ** 2).toFixed(2))} MB`}
             />
             <Info
+              iconType={TbTextCaption}
               title='Alt text'
               body={media.alt ? media.alt : undefined}
             />
