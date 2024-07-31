@@ -34,6 +34,8 @@ const reducer = (
       };
     case 'READ_SINGLE':
       return { medias: [...state.medias], media: action.payload };
+    case 'CLEAR_SINGLE':
+      return { medias: [...state.medias], media: action.payload };
   }
 };
 
