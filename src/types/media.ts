@@ -15,7 +15,8 @@ namespace Media {
     | { type: 'DELETE'; payload: Type }
     | { type: 'UPDATE'; payload: Type }
     | { type: 'READ_MULTIPLE'; payload: Type[] }
-    | { type: 'READ_SINGLE'; payload: Type };
+    | { type: 'READ_SINGLE'; payload: Type }
+    | { type: 'CLEAR_SINGLE'; payload: null };
 
   export type State = {
     medias: Type[];
