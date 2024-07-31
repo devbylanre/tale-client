@@ -9,14 +9,13 @@ const Header = () => {
   return (
     <Flex
       px={'lg'}
-      height={'48'}
       borderBottom={'1'}
       position={'sticky'}
       alignItems={'center'}
       borderColor={'gray-95'}
       justifyContent={'between'}
       backgroundColor={'white'}
-      style={{ top: '0rem', zIndex: 1 }}
+      style={{ top: '0rem', zIndex: 1, height: 'var(--header-panel)' }}
     >
       <Text
         as={'p'}
