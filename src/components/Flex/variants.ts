@@ -80,6 +80,7 @@ const flexVariants = cv({
 
   defaultVariants: {
     display: 'flex',
+    gap: 'sm',
   },
 });
 
