@@ -83,7 +83,7 @@ const Wrapper = React.forwardRef(
       zIndex: 1,
       visibility: isVisible ? 'visible' : 'hidden',
       pointerEvents: isVisible ? 'auto' : 'none',
-      transition: 'all .2s ease-in-out',
+      transition: 'all .1s ease-in-out',
     };
 
     return addPortal({
@@ -120,8 +120,8 @@ const Main = React.forwardRef(
     const defaultStyle: React.CSSProperties = {
       overflow: 'hidden',
       opacity: isVisible ? 1 : 0,
-      transform: isVisible ? 'translateY(0em)' : 'translateY(1.5em)',
-      transition: 'opacity .3s ease-in, transform .3s ease-in',
+      transform: isVisible ? 'translateY(0em)' : 'translateY(1em)',
+      transition: 'opacity .2s ease-in, transform .2s ease-in',
     };
 
     return (
