@@ -1,5 +1,5 @@
 import React from 'react';
-import MediasFeature from '../features/medias/Feature';
+import MediasFeature from '../features/media/Feature';
 
 const MediaPage = () => {
   return (
