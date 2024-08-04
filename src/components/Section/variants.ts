@@ -24,6 +24,7 @@ const sectionVariants = cv({
     px: spacing.paddingX,
     py: spacing.paddingY,
     display: layout.display,
+    position: layout.position,
     spaceX: spacing.spaceX,
     spaceY: spacing.spaceY,
     border: border.width,
