@@ -3,20 +3,12 @@ import { setContext } from '@apollo/client/link/context';
 
 const httpLink = createHttpLink({
   credentials: 'include',
-  uri: process.env.SERVER_URI,
+  uri: 'http://localhost:4000/graphql',
 });
 
 const authContext = setContext((request) => {
   const token = localStorage.getItem('accessToken');
-  let accessToken = '';
-
-  if (token) {
-    try {
-      accessToken = JSON.parse(token);
-    } catch (error) {
-      console.error('Error parsing access token: ', token);
-    }
-  }
+  let accessToken = token ? JSON.parse(token) : '';
 
   return {
     headers: {
