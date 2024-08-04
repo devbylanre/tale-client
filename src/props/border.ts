@@ -27,7 +27,7 @@ const border = {
   },
   radius: {
     class: 'radius',
-    values: ['xs', 'sm', 'md', 'lg', 'xl', 'max'] as const,
+    values: ['xs', 'sm', 'md', 'lg', 'xl', '2xl', 'max'] as const,
   },
 } satisfies Variants.Map;
 
