@@ -1,9 +1,7 @@
 import React from 'react';
 import Text from '../../../components/Text/Text';
 import Flex from '../../../components/Flex/Flex';
-import Button from '../../../components/Button/Button';
-import Icon from '../../../components/Icon/Icon';
-import { TbPlus } from 'react-icons/tb';
+import MediaUploadFeature from '../../mediaUpload/Feature';
 
 const Header = () => {
   return (
@@ -24,21 +22,7 @@ const Header = () => {
         Manage your docs, videos, audios and more...
       </Text>
 
-      <Button
-        px={'md'}
-        size={14}
-        gap={'xs'}
-        weight={500}
-        height={'32'}
-        borderRadius={'lg'}
-      >
-        <Icon
-          size={20}
-          iconType={TbPlus}
-          style={{ strokeWidth: '2.5px' }}
-        />
-        Upload
-      </Button>
+      <MediaUploadFeature />
     </Flex>
   );
 };

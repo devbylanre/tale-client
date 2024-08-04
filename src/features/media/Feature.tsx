@@ -18,7 +18,7 @@ const MediasFeature = () => {
         <Box
           style={{
             width: ID ? 'calc(100% - var(--details-panel))' : '100%',
-            transition: 'width .3s ease-in-out',
+            transition: 'width .2s ease-in-out',
           }}
         >
           <Header />
@@ -26,7 +26,7 @@ const MediasFeature = () => {
             p={'lg'}
             gap={'sm'}
             gridColumn={ID ? '5' : '6'}
-            style={{ transition: 'all .3 ease-in-out' }}
+            style={{ transition: 'all .2s ease' }}
           />
         </Box>
 
@@ -42,7 +42,7 @@ const MediasFeature = () => {
             top: '0rem',
             right: '0rem',
             width: 'var(--details-panel)',
-            transition: 'transform .3s ease-in-out',
+            transition: 'transform .2s ease-in-out',
             transform: `translateX(${ID ? '0rem' : 'var(--details-panel)'})`,
           }}
         >
