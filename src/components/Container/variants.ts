@@ -1,8 +1,5 @@
 import border from '../../props/border';
 import colors from '../../props/colors';
-import flex from '../../props/flex';
-import grid from '../../props/grid';
-import justification from '../../props/justification';
 import layout from '../../props/layout';
 import sizing from '../../props/sizing';
 import spacing from '../../props/spacing';
@@ -43,6 +40,7 @@ const containerVariants = cv({
     minHeight: sizing.minHeight,
     maxHeight: sizing.maxHeight,
     container: layout.container,
+    position: layout.position,
     scale: transform.scale,
     rotate: transform.rotate,
     translateX: transform.translateX,
