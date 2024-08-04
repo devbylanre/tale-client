@@ -5,108 +5,111 @@ import Icon from '../../../components/Icon/Icon';
 import Text from '../../../components/Text/Text';
 import Button from '../../../components/Button/Button';
 import filer from '../../../utils/file';
-import { TbAlertTriangleFilled, TbFileInvoice, TbX } from 'react-icons/tb';
+import { TbPolaroidFilled, TbCircleArrowUpFilled, TbX } from 'react-icons/tb';
 
 type ListProps = {
-  files: File[];
-  errors: string[];
-  uploadProgress: number[];
-  removeFile: (index: number) => void;
+  file: File;
+  error: any;
+  percent: number;
+  onRemove: () => void;
 };
 
-const List = ({ files, errors, removeFile, uploadProgress }: ListProps) => {
+const List = ({ file, error, onRemove, percent }: ListProps) => {
+  const isLoading = percent !== 100;
+  const isError = !isLoading && error !== undefined;
+  const handleRemove = () => onRemove();
+
   return (
-    <Box spaceY={'md'}>
-      {files.map(({ name, size }, index) => {
-        const hasError = uploadProgress[index] === 100 && errors[index];
-
-        return (
-          <Flex
-            gap={'md'}
-            key={index}
-            alignItems={'center'}
+    <Flex gap={'md'}>
+      <Icon
+        size={24}
+        iconType={TbPolaroidFilled}
+        color={isError ? 'red-60' : 'gray-60'}
+      />
+      <Box
+        as={'span'}
+        flex={'full'}
+        spaceY={'2xs'}
+        overflow={'hidden'}
+      >
+        <Flex
+          alignItems={'center'}
+          justifyContent={'between'}
+        >
+          <Text
+            as={'p'}
+            color={isError ? 'red-60' : 'gray-10'}
+            style={{ transition: 'color .3s ease-in-out' }}
           >
-            <Box>
-              <Icon
-                size={20}
-                color={hasError ? 'red-60' : 'gray-40'}
-                iconType={hasError ? TbAlertTriangleFilled : TbFileInvoice}
-              />
-            </Box>
+            {filer.name(file.name, 14)}
+            {filer.ext(file.name)}
+          </Text>
 
-            <Box flex={'full'}>
-              <Flex
-                gap={'sm'}
-                alignItems={'center'}
-                justifyContent={'between'}
-              >
-                <Text
-                  as={'p'}
-                  color={hasError ? 'red-60' : 'gray-10'}
-                >
-                  {filer.name(name, 14)}.{filer.ext(name)}
-                </Text>
-
-                <Text
-                  size={12}
-                  color={hasError ? 'red-60' : 'gray-40'}
-                >
-                  {filer.inMB(size)}MB / 5MB
-                </Text>
-              </Flex>
-              <Box mt={'xs'}>
-                {hasError ? (
-                  <Text
-                    size={14}
-                    color={'red-60'}
-                  >
-                    {errors[index]}
-                  </Text>
-                ) : (
-                  <Box
-                    height={'2'}
-                    width={'full'}
-                    overflow={'hidden'}
-                    borderRadius={'max'}
-                    backgroundColor={'gray-95'}
-                  >
-                    <Box
-                      height={'full'}
-                      borderRadius={'max'}
-                      backgroundColor={'primary-60'}
-                      style={{
-                        width: `${uploadProgress[index]}%`,
-                        transition: 'all 0.3s ease-in-out',
-                      }}
-                    ></Box>
-                  </Box>
-                )}
-              </Box>
-            </Box>
-
-            <Button
-              px={'md'}
-              height={'24'}
-              color={'gray-40'}
-              borderRadius={'max'}
-              backgroundColor={'gray-95'}
-              onClick={() => removeFile(index)}
-              disabled={uploadProgress[index] !== 100}
-              pseudos={{
-                hover: { color: 'red-60', backgroundColor: 'red-100' },
-              }}
-            >
-              <Icon
-                size={18}
-                iconType={TbX}
-                color={'inherit'}
-                style={{ strokeWidth: '1.5px' }}
-              />
-            </Button>
-          </Flex>
-        );
-      })}
-    </Box>
+          <Icon
+            size={20}
+            color={isError ? 'red-60' : 'gray-60'}
+            iconType={TbCircleArrowUpFilled}
+            style={{
+              opacity: isError || !isLoading ? 1 : 0,
+              transition: 'opacity .2s ease-in-out',
+            }}
+          />
+        </Flex>
+        <Box
+          style={{
+            opacity: isError ? 1 : 0,
+            transition: 'all .2s ease-in-out',
+            visibility: isError ? 'visible' : 'hidden',
+            transform: isError ? 'translateX(0em)' : 'translateX(-.75em)',
+          }}
+        >
+          <Text
+            size={14}
+            color={'red-60'}
+          >
+            {isError ? error : null}
+          </Text>
+        </Box>
+        <Box
+          width={'full'}
+          overflow={'hidden'}
+          borderRadius={'max'}
+          backgroundColor={'gray-95'}
+          style={{
+            opacity: isLoading ? '1' : '0',
+            height: isLoading ? '1.5px' : '0px',
+            transition: 'all .2s ease-in-out',
+          }}
+        >
+          <Box
+            height={'full'}
+            backgroundColor={'blue-60'}
+            style={{
+              width: `${percent || 0}%`,
+              transition: 'width 0.2s linear',
+            }}
+          />
+        </Box>
+      </Box>
+      <Button
+        px={'md'}
+        height={'24'}
+        type={'button'}
+        color={'gray-40'}
+        borderRadius={'max'}
+        disabled={isLoading}
+        onClick={handleRemove}
+        backgroundColor={'gray-95'}
+        pseudos={{ hover: { color: 'red-60', backgroundColor: 'red-100' } }}
+      >
+        <Icon
+          size={18}
+          iconType={TbX}
+          color={'inherit'}
+          style={{ strokeWidth: '1.5px' }}
+        />
+      </Button>
+    </Flex>
   );
 };
 
