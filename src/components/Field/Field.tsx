@@ -6,7 +6,9 @@ import Label from '../Label/Label';
 import Flex from '../Flex/Flex';
 import Text from '../Text/Text';
 
-const Field = ({ children, name }: FieldProvider.Props) => {
+type FieldProps = React.ComponentProps<typeof FieldProvider>;
+
+const Field = ({ children, name }: FieldProps) => {
   return (
     <FieldProvider
       name={name}
