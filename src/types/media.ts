@@ -11,7 +11,7 @@ namespace Media {
   };
 
   export type Action =
-    | { type: 'CREATE'; payload: Type }
+    | { type: 'CREATE'; payload: Type[] }
     | { type: 'DELETE'; payload: Type }
     | { type: 'UPDATE'; payload: Type }
     | { type: 'READ_MULTIPLE'; payload: Type[] }
