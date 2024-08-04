@@ -67,7 +67,7 @@ const Button = React.forwardRef((props: Button.Props, ref: Button.Ref) => {
         height,
         display,
         border,
-        opacity: disabled ? '50' : opacity,
+        opacity: disabled ? '60' : opacity,
         alignItems,
         justifyContent,
         borderColor,

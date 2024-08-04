@@ -55,9 +55,6 @@ const buttonVariants = cv({
     display: 'inline-flex',
     justifyContent: 'center',
     backgroundColor: 'primary-60',
-    transitionProperty: 'all',
-    transitionDuration: 'slow',
-    transitionTimingFunction: 'ease-in-out',
   },
 });
 
