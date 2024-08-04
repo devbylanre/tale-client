@@ -4,15 +4,9 @@ import Icon from '../../../components/Icon/Icon';
 import Box from '../../../components/Box/Box';
 import Text from '../../../components/Text/Text';
 import Button from '../../../components/Button/Button';
-import {
-  TbAlertTriangleFilled,
-  TbTableFilled,
-  TbVersionsFilled,
-} from 'react-icons/tb';
+import { IoFileTrayFull, IoMicSharp } from 'react-icons/io5';
 
-type HeaderProps = { error: Error | null };
-
-const Header = ({ error }: HeaderProps) => {
+const Header = () => {
   return (
     <Flex
       px={'lg'}
@@ -20,22 +14,22 @@ const Header = ({ error }: HeaderProps) => {
       gapX={'sm'}
       alignItems={'center'}
       justifyContent={'between'}
-      backgroundColor={error ? 'red-95' : 'gray-100'}
-      style={{ transition: 'background-color .3s ease-in-out' }}
+      backgroundColor={'gray-100'}
+      style={{ zIndex: 1 }}
     >
       <Icon
         size={20}
-        color={error ? 'red-60' : 'primary-60'}
-        iconType={error ? TbAlertTriangleFilled : TbTableFilled}
+        color={'primary-60'}
+        iconType={IoFileTrayFull}
       />
 
       <Box flex={'full'}>
         <Text
           as={'h3'}
           weight={400}
-          color={error ? 'red-40' : 'gray-40'}
+          color={'gray-40'}
         >
-          {error ? error.message : 'Store files in your library'}
+          Upload files from your device
         </Text>
       </Box>
 
@@ -47,14 +41,10 @@ const Header = ({ error }: HeaderProps) => {
         borderRadius={'max'}
         backgroundColor={'inherit'}
         pseudos={{ hover: { color: 'gray-10' } }}
-        style={{
-          opacity: error ? 0 : 1,
-          transform: error ? 'translateX(-.75em)' : 'translateX(0em)',
-        }}
       >
         <Icon
           size={20}
-          iconType={TbVersionsFilled}
+          iconType={IoMicSharp}
         />
       </Button>
     </Flex>

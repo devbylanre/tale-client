@@ -6,18 +6,26 @@ import Text from '../../../components/Text/Text';
 import Button from '../../../components/Button/Button';
 import filer from '../../../utils/file';
 import { TbPolaroidFilled, TbCircleArrowUpFilled, TbX } from 'react-icons/tb';
+import useFileReader from '../../../hooks/useFileReader';
+import { useField } from 'formik';
 
-type ListProps = {
-  file: File;
-  error: any;
-  percent: number;
-  onRemove: () => void;
-};
+type ListProps = { index: number };
 
-const List = ({ file, error, onRemove, percent }: ListProps) => {
+const List = ({ index }: ListProps) => {
+  const [, meta, helper] = useField<File[]>('files');
+  const { value: files, error: errors } = meta;
+  const { setValue } = helper;
+
+  const file = files[index];
+  const { percent } = useFileReader(file);
+
   const isLoading = percent !== 100;
-  const isError = !isLoading && error !== undefined;
-  const handleRemove = () => onRemove();
+  const isError = !isLoading && errors !== undefined;
+
+  const handleRemove = () => {
+    const newFiles = files.filter((_, i) => i !== index);
+    setValue(newFiles);
+  };
 
   return (
     <Flex gap={'md'}>
@@ -67,7 +75,7 @@ const List = ({ file, error, onRemove, percent }: ListProps) => {
             size={14}
             color={'red-60'}
           >
-            {isError ? error : null}
+            {isError ? (errors as unknown as string[])[index] : null}
           </Text>
         </Box>
         <Box
