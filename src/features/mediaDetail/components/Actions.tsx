@@ -2,16 +2,15 @@ import React from 'react';
 import Flex from '../../../components/Flex/Flex';
 import Button from '../../../components/Button/Button';
 import Icon from '../../../components/Icon/Icon';
-import { TbArrowDown, TbDownload, TbLinkPlus } from 'react-icons/tb';
+import { IoPushSharp, IoShareSocialSharp } from 'react-icons/io5';
 
 const Actions = () => {
   return (
     <Flex
-      mt={'xl'}
+      mt={'sm'}
       gap={'sm'}
     >
       <Button
-        size={14}
         gap={'xs'}
         weight={500}
         width={'full'}
@@ -23,14 +22,13 @@ const Actions = () => {
       >
         <Icon
           size={20}
-          iconType={TbArrowDown}
+          iconType={IoPushSharp}
           style={{ strokeWidth: '2px' }}
         />
         Save
       </Button>
 
       <Button
-        size={14}
         gap={'sm'}
         weight={500}
         width={'full'}
@@ -42,10 +40,10 @@ const Actions = () => {
         <Icon
           size={20}
           color={'primary-60'}
-          iconType={TbLinkPlus}
+          iconType={IoShareSocialSharp}
           style={{ strokeWidth: '2px' }}
         />
-        Copy
+        Share
       </Button>
     </Flex>
   );

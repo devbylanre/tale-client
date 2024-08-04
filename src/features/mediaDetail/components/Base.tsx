@@ -9,7 +9,7 @@ import Flex from '../../../components/Flex/Flex';
 import { useSearchParams } from 'react-router-dom';
 
 const Base = () => {
-  const [_, setSearchParams] = useSearchParams();
+  const [, setSearchParams] = useSearchParams();
   const { media, setMedia } = useMedia();
 
   const handleClear = () => {
@@ -79,14 +79,19 @@ const Base = () => {
         spaceY={'sm'}
         width={'full'}
       >
-        <img
-          className={'w-full radius-xl'}
-          alt={media ? media.alt : ''}
-          src={media ? media.uri : ''}
-          style={{ objectFit: 'cover', aspectRatio: '1/1' }}
-        />
+        {media ? (
+          <img
+            alt={media.alt}
+            src={media.uri}
+            loading={'lazy'}
+            style={{ objectFit: 'cover', aspectRatio: '1/1' }}
+            className={'w-full radius-xl'}
+          />
+        ) : null}
         <Text
+          as={'h3'}
           weight={500}
+          align={'center'}
           transform={'capitalize'}
         >
           {media ? media.name : ''}
