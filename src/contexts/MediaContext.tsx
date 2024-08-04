@@ -12,7 +12,7 @@ const reducer = (
 ): Media.State => {
   switch (action.type) {
     case 'CREATE':
-      return { medias: [...state.medias, action.payload], media: null };
+      return { medias: [...state.medias, ...action.payload], media: null };
     case 'UPDATE':
       return {
         medias: state.medias.map((media) =>
