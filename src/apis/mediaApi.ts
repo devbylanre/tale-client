@@ -39,4 +39,34 @@ const GET_SINGLE_MEDIA = gql`
   }
 `;
 
-export { GET_MULTIPLE_MEDIA, GET_SINGLE_MEDIA };
+const CREATE_MEDIAS = async (params: { files: File[] }) => {
+  const { files } = params;
+  const payload = new FormData();
+
+  files.forEach((file) => payload.append('medias', file));
+
+  const token = localStorage.getItem('accessToken');
+  const accessToken = token ? JSON.parse(token) : '';
+
+  try {
+    const response = await fetch(`http://localhost:4000/rest/medias/`, {
+      mode: 'cors',
+      method: 'POST',
+      body: payload,
+      credentials: 'include',
+      headers: { authorization: `Bearer ${accessToken}` },
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.message || 'Unable to upload media');
+    }
+
+    return data;
+  } catch (error) {
+    throw new Error((error as Error).message);
+  }
+};
+
+export { GET_MULTIPLE_MEDIA, GET_SINGLE_MEDIA, CREATE_MEDIAS };
