@@ -1,163 +1,166 @@
 import React, { useRef, useState } from 'react';
-import Container from '../../components/Container/Container';
-import Widget from './components/Widget';
-import List from './components/List';
 import filer from '../../utils/file';
-import Flex from '../../components/Flex/Flex';
-import Button from '../../components/Button/Button';
 import useUser from '../../hooks/useUser';
+import useMedia from '../../hooks/useMedia';
+import { CREATE_MEDIAS } from '../../apis/mediaApi';
+import * as Yup from 'yup';
+import { Form, Formik, FormikHelpers } from 'formik';
+import Box from '../../components/Box/Box';
+import Modal from '../../components/Modal/Modal';
+import { TbSquareRoundedPlusFilled } from 'react-icons/tb';
+import Icon from '../../components/Icon/Icon';
+import Header from './components/Header';
+import Buttons from './components/Buttons';
+import Messenger from './components/Messenger';
+import Field from '../../components/Field/Field';
+import List from './components/List';
+import File from '../../components/File/File';
+import { useMutation } from '@tanstack/react-query';
+import useFileReader from '../../hooks/useFileReader';
+
+const validationSchema = Yup.object().shape({
+  files: Yup.array()
+    .of(
+      Yup.mixed()
+        .test(
+          'fileSize',
+          'File size is too big. Max file size is 5MB',
+          (file) => file && (file as File).size <= 5 * 1024 * 1024
+        )
+        .test(
+          'fileFormat',
+          'File format is not supported',
+          (file) =>
+            file &&
+            ['png', 'jpg', 'jpeg', 'gif'].includes(
+              filer.ext((file as File).name)
+            )
+        )
+    )
+    .required('Select at least one file'),
+});
+
+type InitialValues = { files: File[] };
+const initialValues: InitialValues = { files: [] };
 
 const MediaUploadFeature = () => {
   const { user } = useUser();
+  const { setMedia } = useMedia();
   const inputRef = useRef<HTMLInputElement>(null);
-  const [files, setFiles] = useState<File[]>([]);
-  const [errors, setErrors] = useState<string[]>([]);
-  const [uploadProgress, setUploadProgress] = useState<number[]>([]);
+  const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
+  const { percents, resetPercent } = useFileReader(selectedFiles);
 
-  const openStorage = () => {
-    if (inputRef.current) {
-      inputRef.current.click();
-    }
+  const { mutate, error, isPending } = useMutation({
+    mutationFn: CREATE_MEDIAS,
+    onSuccess: (data) => setMedia({ type: 'CREATE', payload: data.medias }),
+  });
+
+  const handleSubmit = async (
+    { files }: InitialValues,
+    { resetForm }: FormikHelpers<InitialValues>
+  ) => {
+    mutate({ userId: user ? user._id : '', files: files });
+    resetForm();
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const selectedFiles = Array.from(e.target.files || []);
-    setFiles(selectedFiles);
-    setErrors([]);
-
-    setUploadProgress(Array(selectedFiles.length).fill(0));
-
-    selectedFiles.forEach((file, index) => {
-      uploadFile(file, index);
-      const ext = filer.ext(file.name);
-      const acceptedExts = ['png', 'gif', 'jpg', 'mp3'];
-
-      if (file.size > 5 * 1024 ** 2) {
-        setErrors((prevErrors) => {
-          const newErrors = [...prevErrors];
-          newErrors[index] = 'File size is too big. Max file size is 5MB';
-          return newErrors;
-        });
-      } else if (!acceptedExts.includes(ext)) {
-        setErrors((prevErrors) => {
-          const newErrors = [...prevErrors];
-          newErrors[index] = 'File format is not supported';
-          return newErrors;
-        });
-      } else {
-        setErrors((prevErrors) => {
-          const newErrors = [...prevErrors];
-          newErrors[index] = '';
-          return newErrors;
-        });
-      }
-    });
-
-    if (inputRef.current) {
-      inputRef.current.value = '';
-    }
-  };
-
-  const uploadFile = (file: File, index: number) => {
-    const reader = new FileReader();
-
-    reader.onprogress = (event) => {
-      const progress = (event.loaded / event.total) * 100;
-      setUploadProgress((prevProgress) => {
-        const newProgress = [...prevProgress];
-        newProgress[index] = progress;
-        return newProgress;
-      });
-    };
-
-    reader.onloadend = () => {
-      // Upload file to your server here
-      setUploadProgress((prevProgress) => {
-        const newProgress = [...prevProgress];
-        newProgress[index] = 100;
-        return newProgress;
-      });
-    };
-
-    reader.readAsDataURL(file);
-  };
-
-  const removeFile = (index: number) => {
-    setFiles((prevFiles) => prevFiles.filter((_, i) => i !== index));
-    setUploadProgress((prevProgress) =>
-      prevProgress.filter((_, i) => i !== index)
-    );
-    setErrors((prevErrors) => prevErrors.filter((_, i) => i !== index));
-  };
-
-  const handleSubmit = async () => {
-    const formData = new FormData();
-    files.forEach((file) => {
-      formData.append('medias', file);
-    });
-
-    const BEARER_TOKEN = JSON.parse(localStorage.getItem('accessToken') || '');
-
-    try {
-      const response = await fetch(
-        `http://localhost:4000/rest/medias/${user ? user._id : ''}`,
-        {
-          mode: 'cors',
-          method: 'POST',
-          body: formData,
-          credentials: 'include',
-          headers: { authorization: `BEARER ${BEARER_TOKEN}` },
-        }
-      );
-
-      if (!response.ok) {
-        console.log('Unable to upload medias');
-      }
-
-      const data = await response.json();
-
-      console.log({ data });
-      setFiles([]);
-      setErrors([]);
-      setUploadProgress([]);
-    } catch (error) {
-      console.log({ error: (error as Error).message });
-    }
+    setSelectedFiles(Array.from(e.target.files || []));
+    if (inputRef.current) inputRef.current.value = '';
   };
 
   return (
-    <Container spaceY={'3xl'}>
-      <Widget
-        inputRef={inputRef}
-        openStorage={openStorage}
-        handleChange={handleChange}
-        uploadProgress={uploadProgress}
-      />
-      <List
-        errors={errors}
-        files={files}
-        removeFile={removeFile}
-        uploadProgress={uploadProgress}
-      />
+    <Modal>
+      <Modal.Action
+        px={'md'}
+        size={14}
+        gap={'xs'}
+        weight={500}
+        height={'32'}
+        borderRadius={'lg'}
+        color={'primary-60'}
+        backgroundColor={'inherit'}
+        pseudos={{ hover: { backgroundColor: 'primary-95' } }}
+      >
+        <Icon
+          size={20}
+          style={{ strokeWidth: '1.5px' }}
+          iconType={TbSquareRoundedPlusFilled}
+        />
+        Upload
+      </Modal.Action>
+      <Modal.Section>
+        <Modal.Overlay />
+        <Modal.Container>
+          <Modal.Body>
+            <Header error={error} />
+            <Box
+              maxHeight={'520'}
+              overflowY={'scroll'}
+            >
+              <Formik
+                initialValues={initialValues}
+                validationSchema={validationSchema}
+                onSubmit={handleSubmit}
+              >
+                {({ values, setFieldValue, errors }) => (
+                  <Form>
+                    <Box
+                      mt={'xl'}
+                      px={'lg'}
+                    >
+                      <Field name={'files'}>
+                        <File
+                          ref={inputRef}
+                          multiple={true}
+                          onChange={handleChange}
+                        />
+                      </Field>
 
-      <Flex mt={'3xl'}>
-        <Button
-          size={14}
-          weight={500}
-          width={'full'}
-          type={'submit'}
-          borderRadius={'max'}
-          onClick={handleSubmit}
-          disabled={
-            errors.some((error) => error.length > 1) ||
-            uploadProgress.some((progress) => progress !== 100) ||
-            files.length < 1
-          }
-        >
-          Upload Medias
-        </Button>
-      </Flex>
-    </Container>
+                      <Messenger
+                        onStorage={() => inputRef.current?.click()}
+                        isDisabled={
+                          values.files.length > 0 &&
+                          percents.some((value) => value !== 100)
+                        }
+                      />
+                    </Box>
+
+                    <Box
+                      px={'lg'}
+                      spaceY={'md'}
+                      mt={values.files.length === 0 ? 'none' : 'xl'}
+                    >
+                      {values.files.map((file, index) => (
+                        <List
+                          key={index}
+                          file={file}
+                          percent={percents[index]}
+                          error={errors.files && errors.files[index]}
+                          onRemove={() => {
+                            const newFiles = values.files.filter(
+                              (_, i) => i !== index
+                            );
+                            setFieldValue('files', newFiles);
+                            resetPercent(index);
+                          }}
+                        />
+                      ))}
+                    </Box>
+
+                    <Buttons
+                      isSubmitting={isPending}
+                      disabled={
+                        errors.files !== undefined || values.files.length === 0
+                      }
+                    />
+                  </Form>
+                )}
+              </Formik>
+            </Box>
+          </Modal.Body>
+        </Modal.Container>
+      </Modal.Section>
+    </Modal>
   );
 };
 
