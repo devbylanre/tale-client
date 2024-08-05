@@ -51,6 +51,7 @@ const Text = React.forwardRef(
           decoration,
           listType,
           color,
+          className,
         })}
         {...rest}
       />
