@@ -9,7 +9,7 @@ export const TabsContext = React.createContext<Context | null>(null);
 
 type TabsProviderProps = {
   defaultTab?: string;
-  children: React.ReactNode;
+  children: ((params: Context) => React.ReactNode) | React.ReactNode;
 };
 
 const TabsProvider = ({ defaultTab = '', children }: TabsProviderProps) => {
@@ -17,8 +17,9 @@ const TabsProvider = ({ defaultTab = '', children }: TabsProviderProps) => {
 
   return (
     <TabsContext.Provider value={{ activeTab, setActiveTab }}>
-      {' '}
-      {children}
+      {typeof children === 'function'
+        ? children({ activeTab, setActiveTab })
+        : children}
     </TabsContext.Provider>
   );
 };
