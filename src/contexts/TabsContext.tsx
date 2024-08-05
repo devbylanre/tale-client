@@ -5,10 +5,7 @@ type Context = {
   setActiveTab: React.Dispatch<SetStateAction<string>>;
 };
 
-export const TabsContext = React.createContext<Context>({
-  activeTab: '',
-  setActiveTab: () => '',
-});
+export const TabsContext = React.createContext<Context | null>(null);
 
 type TabsProviderProps = {
   defaultTab?: string;
