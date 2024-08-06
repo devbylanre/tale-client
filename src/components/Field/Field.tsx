@@ -127,7 +127,7 @@ const Message = React.forwardRef(
         as={as}
         ref={ref}
         size={size}
-        color={meta.error ? 'red-60' : color}
+        color={meta.error && meta.touched ? 'red-60' : color || 'gray-40'}
         {...rest}
       >
         {meta.error && meta.touched ? meta.error : children}
