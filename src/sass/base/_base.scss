@@ -10,8 +10,13 @@
 }
 
 button {
-  line-height: inherit !important;
+  line-height: normal !important;
   transition: all 0.3s ease-in-out;
+}
+
+svg {
+  display: inline-block;
+  vertical-align: middle;
 }
 
 @font-face {
