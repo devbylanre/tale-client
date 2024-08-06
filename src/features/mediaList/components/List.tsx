@@ -11,8 +11,10 @@ import { useSearchParams } from 'react-router-dom';
 
 const List = () => {
   const { medias } = useMedia();
-  const [_, setSearchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [selectedFile, setSelectedFile] = useState(0);
+
+  const mediaID = searchParams.get('mediaId');
 
   return (
     <React.Fragment>
@@ -74,6 +76,7 @@ const List = () => {
                   height={'24'}
                   borderRadius={'max'}
                   backgroundColor={'gray-80'}
+                  disabled={mediaID !== null}
                   onClick={() => setSearchParams(`mediaId=${media._id}`)}
                   pseudos={{ hover: { backgroundColor: 'gray-70' } }}
                   style={{ opacity: isHovered ? 1 : 0 }}
