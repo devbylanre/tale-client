@@ -2,7 +2,7 @@ import React from 'react';
 import Header from './components/Header';
 import Icon from '../../components/Icon/Icon';
 import Modal from '../../components/Modal/Modal';
-import { TiUpload } from 'react-icons/ti';
+import { IoReloadOutline } from 'react-icons/io5';
 import FormHandler from './components/FormHandler';
 
 const MediaUploadFeature = () => {
@@ -10,20 +10,18 @@ const MediaUploadFeature = () => {
     <Modal>
       <Modal.Action
         px={'md'}
-        size={14}
         gap={'xs'}
-        weight={500}
         height={'32'}
         borderRadius={'lg'}
-        color={'primary-60'}
+        color={'primary-40'}
         backgroundColor={'inherit'}
-        pseudos={{ hover: { backgroundColor: 'primary-95' } }}
+        pseudos={{ hover: { color: 'primary-30' } }}
       >
-        <Icon
-          size={20}
-          iconType={TiUpload}
-        />
         Upload
+        <Icon
+          size={12}
+          iconType={IoReloadOutline}
+        />
       </Modal.Action>
       <Modal.Section>
         <Modal.Overlay />
