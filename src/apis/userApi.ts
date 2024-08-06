@@ -1,18 +1,16 @@
 import { gql } from '@apollo/client';
 
-const userApi = {
-  single: gql`
-    query GetUser {
-      user {
-        _id
-        firstName
-        lastName
-        email
-        role
-        status
-      }
+const GET_USER = gql`
+  query GetUser {
+    user {
+      _id
+      firstName
+      lastName
+      email
+      role
+      status
     }
-  `,
-};
+  }
+`;
 
-export default userApi;
+export { GET_USER };
