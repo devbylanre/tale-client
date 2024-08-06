@@ -3,14 +3,13 @@ import Container from '../../../components/Container/Container';
 import Section from '../../../components/Section/Section';
 import Flex from '../../../components/Flex/Flex';
 import Text from '../../../components/Text/Text';
-import useUser from '../../../hooks/useUser';
 import Box from '../../../components/Box/Box';
 import Button from '../../../components/Button/Button';
 import Link from '../../../components/Link/Link';
 
-const Error = () => {
-  const { error } = useUser();
+type ErrorProps = { message: string | undefined };
 
+const Error = ({ message }: ErrorProps) => {
   return (
     <Section>
       <Container px={'md'}>
@@ -44,7 +43,7 @@ const Error = () => {
               weight={500}
               color={'red-50'}
             >
-              {error ? error.message : null}
+              {message ? message : null}
             </Text>
           </Box>
 
