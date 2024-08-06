@@ -7,6 +7,8 @@ import { IoResize } from 'react-icons/io5';
 import { useSearchParams } from 'react-router-dom';
 import useMedia from '../../../hooks/useMedia';
 import MediaDetailFeature from '../../mediaDetail/Feature';
+import MediaUpdateFeature from '../../mediaUpdate/Feature';
+import MediaDeleteFeature from '../../mediaDelete/Feature';
 
 const Header = () => {
   const { setMedia } = useMedia();
@@ -57,6 +59,21 @@ const Header = () => {
         backgroundColor={'gray-100'}
       >
         <MediaDetailFeature />
+      </Tabs.Body>
+      <Tabs.Body
+        p={'lg'}
+        flex={'full'}
+        value={'update'}
+        backgroundColor={'gray-100'}
+      >
+        <MediaUpdateFeature />
+      </Tabs.Body>
+      <Tabs.Body
+        flex={'full'}
+        value={'delete'}
+        backgroundColor={'gray-100'}
+      >
+        <MediaDeleteFeature />
       </Tabs.Body>
     </Tabs>
   );
