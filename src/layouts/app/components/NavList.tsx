@@ -16,27 +16,29 @@ const NavList = ({ nav }: NavListProps) => {
       to={nav.url}
       key={nav.name}
       pseudos={{ hover: { color: 'inherit' } }}
+      style={{ display: 'block' }}
     >
       {({ isActive }) => (
         <Flex
-          px={'md'}
-          gapX={'lg'}
+          px={'sm'}
+          gapX={'sm'}
           height={'32'}
           width={'full'}
+          borderRadius={'md'}
           alignItems={'center'}
-          backgroundColor={isActive ? 'primary-95' : 'transparent'}
+          backgroundColor={isActive ? 'primary-100' : 'transparent'}
           pseudos={{
-            hover: { backgroundColor: isActive ? 'primary-90' : 'gray-95' },
+            hover: { backgroundColor: isActive ? 'primary-95' : 'gray-100' },
           }}
+          style={{ transition: 'all .3s ease-in-out' }}
         >
           <Icon
             size={'20'}
             iconType={nav.icon}
-            color={isActive ? 'primary-50' : 'gray-50'}
+            color={isActive ? 'primary-40' : 'gray-60'}
           />
           <Text
             size={14}
-            weight={500}
             color={isActive ? 'primary-40' : 'gray-40'}
           >
             {nav.name}
