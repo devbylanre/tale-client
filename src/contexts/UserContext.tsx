@@ -1,28 +1,26 @@
-import { createContext } from 'react';
+import { createContext, useReducer } from 'react';
 import User from '../types/user';
-import { ApolloError, useQuery } from '@apollo/client';
-import userApi from '../apis/userApi';
 
-type Context = {
-  user: User.Props | null;
-  isLoading: boolean;
-  error: ApolloError | undefined;
+const initialState: User.State = { user: undefined };
+
+export const UserContext = createContext<User.Context | null>(null);
+
+const reducer = (state: User.State, action: User.Action): User.State => {
+  switch (action.type) {
+    case 'GET':
+      return { user: action.payload };
+    case 'UPDATE':
+      return { user: { ...state.user, ...action.payload } };
+    case 'DELETE':
+      return { user: action.payload };
+  }
 };
 
-export const UserContext = createContext<Context | null>(null);
-
-type UserProviderProps = {
-  children: React.ReactNode;
-};
-const UserProvider = ({ children }: UserProviderProps) => {
-  const { loading, data, error } = useQuery(userApi.single, {
-    onError: (error) => console.log({ error }),
-  });
+const UserProvider = ({ children }: React.PropsWithChildren) => {
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
-    <UserContext.Provider
-      value={{ isLoading: loading, error: error, user: data?.user }}
-    >
+    <UserContext.Provider value={{ state, dispatch }}>
       {children}
     </UserContext.Provider>
   );
