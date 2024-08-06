@@ -5,8 +5,8 @@ import Flex from '../../components/Flex/Flex';
 import { useSearchParams } from 'react-router-dom';
 import MediaListFeature from '../mediaList/Feature';
 import Section from '../../components/Section/Section';
-import MediaDetailFeature from '../mediaDetail/Feature';
 import Container from '../../components/Container/Container';
+import MediaPanelFeature from '../mediaPanel/Feature';
 
 const MediasFeature = () => {
   const [searchParams] = useSearchParams();
@@ -18,7 +18,7 @@ const MediasFeature = () => {
         <Box
           style={{
             width: ID ? 'calc(100% - var(--details-panel))' : '100%',
-            transition: 'width .2s ease-in-out',
+            transition: 'width .15s ease-in-out',
           }}
         >
           <Header />
@@ -26,12 +26,12 @@ const MediasFeature = () => {
             p={'lg'}
             gap={'sm'}
             gridColumn={ID ? '5' : '6'}
-            style={{ transition: 'all .2s ease' }}
+            style={{ transition: 'all .15s ease-in-out' }}
           />
         </Box>
 
         <Flex
-          p={'lg'}
+          gap={'none'}
           height={'full'}
           borderLeft={'1'}
           position={'fixed'}
@@ -42,11 +42,11 @@ const MediasFeature = () => {
             top: '0rem',
             right: '0rem',
             width: 'var(--details-panel)',
-            transition: 'transform .2s ease-in-out',
+            transition: 'transform .15s ease-in-out',
             transform: `translateX(${ID ? '0rem' : 'var(--details-panel)'})`,
           }}
         >
-          <MediaDetailFeature />
+          <MediaPanelFeature />
         </Flex>
       </Container>
     </Section>
