@@ -66,6 +66,7 @@ const TextField = React.forwardRef(
         ref={ref}
         id={field.name}
         name={field.name}
+        value={field.value}
         onBlur={handleBlur}
         onFocus={handleFocus}
         onChange={handleChange}
