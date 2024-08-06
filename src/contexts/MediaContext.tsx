@@ -12,30 +12,40 @@ const reducer = (
 ): Media.State => {
   switch (action.type) {
     case 'CREATE':
-      return { medias: [...state.medias, ...action.payload], media: null };
+      return {
+        medias: [...state.medias, ...action.payload],
+        media: state.media,
+      };
     case 'UPDATE':
       return {
         medias: state.medias.map((media) =>
-          media._id === action.payload._id ? action.payload : media
+          media._id === action.payload._id
+            ? { ...media, ...action.payload }
+            : media
         ),
-        media: null,
+        media: state.media
+          ? state.media._id === action.payload._id
+            ? action.payload
+            : state.media
+          : null,
       };
     case 'DELETE':
       return {
         medias: state.medias.filter(
           (media) => media._id !== action.payload._id
         ),
-        media: null,
+        media: state.media
+          ? state.media._id === action.payload._id
+            ? null
+            : state.media
+          : null,
       };
     case 'READ_MULTIPLE':
-      return {
-        medias: [...action.payload],
-        media: null,
-      };
+      return { medias: [...action.payload], media: state.media };
     case 'READ_SINGLE':
       return { medias: [...state.medias], media: action.payload };
     case 'CLEAR_SINGLE':
-      return { medias: [...state.medias], media: action.payload };
+      return { medias: [...state.medias], media: null };
   }
 };
 
