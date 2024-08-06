@@ -14,9 +14,9 @@ const Triggers = React.forwardRef(
   <E extends Flex.Elements>(props: Flex.Props<E>, ref: Flex.Ref<E>) => {
     const {
       p = '2xs',
-      gap = '2xs',
-      borderRadius = 'lg',
-      backgroundColor = 'gray-90',
+      gap = 'xs',
+      borderRadius = 'md',
+      backgroundColor = 'gray-95',
       ...rest
     } = props;
 
@@ -48,7 +48,7 @@ const Trigger = React.forwardRef(
       borderRadius = 'md',
       backgroundColor = isActive ? 'white' : 'inherit',
       pseudos = {
-        hover: { backgroundColor: isActive ? 'gray-100' : 'gray-95' },
+        hover: { backgroundColor: isActive ? 'gray-100' : 'gray-90' },
       },
       ...rest
     } = props;
