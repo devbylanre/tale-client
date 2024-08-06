@@ -30,7 +30,7 @@ const Overlay = React.forwardRef(
       left: '0rem',
       opacity: isVisible ? 1 : 0,
       background: 'rgba(0, 0, 0, 0.75)',
-      transition: 'opacity .2s ease-in',
+      transition: 'opacity .2s ease-in-out',
     };
 
     return (
@@ -83,7 +83,7 @@ const Wrapper = React.forwardRef(
       zIndex: 1,
       visibility: isVisible ? 'visible' : 'hidden',
       pointerEvents: isVisible ? 'auto' : 'none',
-      transition: 'all .1s ease-in-out',
+      transition: 'all .2s ease-in-out',
     };
 
     return addPortal({
@@ -121,7 +121,7 @@ const Main = React.forwardRef(
       overflow: 'hidden',
       opacity: isVisible ? 1 : 0,
       transform: isVisible ? 'translateY(0em)' : 'translateY(1em)',
-      transition: 'opacity .2s ease-in, transform .2s ease-in',
+      transition: 'opacity .3s ease-in-out, transform .3s ease-in-out',
     };
 
     return (
