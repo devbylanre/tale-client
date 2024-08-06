@@ -1,7 +1,11 @@
-@function shades($map: ()) {
+@function shades($colors) {
   $shades: ();
+  $length: 11;
 
-  @each $key, $color in $map {
+  @each $key, $color in $colors {
+    $i: 1;
+    $shade: '';
+
     @if index(
       (transparent, current, white, black, inherit, current, transparent),
       $key
@@ -9,13 +13,19 @@
     {
       $shades: map-merge($shades, (#{$key}: #{$color}));
     } @else {
-      $i: 1;
-      @while $i <= 11 {
-        $lightness: if($i == 6, 0%, ($i - 6) * 8.5%);
-        $amount: if($i < 10, $i * 10, if($i == 10, 95, 100));
-        $newColor: adjust-color($color, $lightness: $lightness);
+      @while $i <= $length {
+        @if $i < 4 {
+          $shade: mix($color, black, (($i * 3) * 10%));
+        } @else if $i == 4 {
+          $shade: $color;
+        } @else if $i < 8 {
+          $shade: mix($color, white, (($length - $i) * 14%));
+        } @else {
+          $shade: mix($color, white, (($length - ($i - 0.6)) * 10%));
+        }
 
-        $shades: map-merge($shades, (#{$key}-#{$amount}: #{$newColor}));
+        $prefix: if($i < 10, $i * 10, if($i == 10, 95, 100));
+        $shades: map-merge($shades, (#{$key}-#{$prefix}: #{$shade}));
 
         $i: $i + 1;
       }
