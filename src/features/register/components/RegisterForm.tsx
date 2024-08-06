@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import { Form, Formik } from 'formik';
-import Field from '../../../components/Field/Field';
-import TextField from '../../../components/TextField/TextField';
-import Box from '../../../components/Box/Box';
-import { TbEye, TbEyeClosed } from 'react-icons/tb';
-import Button from '../../../components/Button/Button';
-import { useMutation } from '@apollo/client';
-import auth from '../../../apis/authApi';
 import * as Yup from 'yup';
-import Alert from '../../../components/Alert/Alert';
+import { Form, Formik } from 'formik';
+import { useMutation } from '@apollo/client';
+import Box from '../../../components/Box/Box';
+import { SIGN_UP } from '../../../apis/authApi';
 import Text from '../../../components/Text/Text';
+import { TbEye, TbEyeClosed } from 'react-icons/tb';
+import Field from '../../../components/Field/Field';
+import Alert from '../../../components/Alert/Alert';
+import Button from '../../../components/Button/Button';
+import TextField from '../../../components/TextField/TextField';
 
 const initialValues = { email: '', password: '' };
 
@@ -32,7 +32,7 @@ const validationSchema = Yup.object().shape({
 
 const RegisterForm = () => {
   const [isTypeText, setIsTypeText] = useState(false);
-  const [signUp, { loading, error, data }] = useMutation(auth.register, {
+  const [signUp, { loading, error }] = useMutation(SIGN_UP, {
     onError: (error) => console.error(error),
   });
 
