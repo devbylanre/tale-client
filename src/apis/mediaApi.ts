@@ -39,6 +39,45 @@ const GET_SINGLE_MEDIA = gql`
   }
 `;
 
+const UPDATE_MEDIA = gql`
+  mutation UpdateMedia($id: ID!, $payload: UpdateMediaPayload!) {
+    updateMedia(id: $id, payload: $payload) {
+      _id
+      hash
+      name
+      path
+      size
+      uri
+      alt
+      createdAt
+      # user {
+      #   _id
+      #   role
+      #   status
+      #   email
+      #   password
+      #   firstName
+      #   lastName
+      # }
+    }
+  }
+`;
+
+const DELETE_MEDIA = gql`
+  mutation DeleteMedia($id: ID!) {
+    deleteMedia(id: $id) {
+      _id
+      hash
+      name
+      path
+      size
+      uri
+      alt
+      createdAt
+    }
+  }
+`;
+
 const CREATE_MEDIAS = async (params: { files: File[] }) => {
   const { files } = params;
   const payload = new FormData();
@@ -69,4 +108,10 @@ const CREATE_MEDIAS = async (params: { files: File[] }) => {
   }
 };
 
-export { GET_MULTIPLE_MEDIA, GET_SINGLE_MEDIA, CREATE_MEDIAS };
+export {
+  GET_MULTIPLE_MEDIA,
+  GET_SINGLE_MEDIA,
+  UPDATE_MEDIA,
+  DELETE_MEDIA,
+  CREATE_MEDIAS,
+};
