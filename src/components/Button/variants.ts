@@ -44,7 +44,7 @@ const buttonVariants = cv({
   },
 
   defaultVariants: {
-    px: 'lg',
+    px: 'md',
     size: 16,
     gap: 'sm',
     height: '40',
@@ -54,7 +54,7 @@ const buttonVariants = cv({
     alignItems: 'center',
     display: 'inline-flex',
     justifyContent: 'center',
-    backgroundColor: 'primary-60',
+    backgroundColor: 'primary-40',
   },
 });
 
