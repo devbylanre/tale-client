@@ -8,7 +8,9 @@ const useUser = () => {
     throw new Error('useUser must be used within a UserProvider');
   }
 
-  return context;
+  const { state, dispatch } = context;
+
+  return { user: state.user, setUser: dispatch };
 };
 
 export default useUser;
