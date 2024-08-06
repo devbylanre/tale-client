@@ -14,12 +14,12 @@ const Header = () => {
       gapX={'sm'}
       alignItems={'center'}
       justifyContent={'between'}
-      backgroundColor={'gray-100'}
+      backgroundColor={'gray-95'}
       style={{ zIndex: 1 }}
     >
       <Icon
         size={20}
-        color={'primary-60'}
+        color={'blue-40'}
         iconType={IoFileTrayFull}
       />
 
@@ -27,9 +27,8 @@ const Header = () => {
         <Text
           as={'h3'}
           weight={400}
-          color={'gray-40'}
         >
-          Upload files from your device
+          Click on open to choose files
         </Text>
       </Box>
 
@@ -37,7 +36,7 @@ const Header = () => {
         px={'none'}
         width={'fit'}
         height={'fit'}
-        color={'gray-60'}
+        color={'gray-40'}
         borderRadius={'max'}
         backgroundColor={'inherit'}
         pseudos={{ hover: { color: 'gray-10' } }}
