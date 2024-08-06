@@ -5,11 +5,12 @@ import Box from '../../../components/Box/Box';
 import Field from '../../../components/Field/Field';
 import TextField from '../../../components/TextField/TextField';
 import { useMutation } from '@apollo/client';
-import authApi from '../../../apis/authApi';
+import { SIGN_IN } from '../../../apis/authApi';
 import Button from '../../../components/Button/Button';
 import Alert from '../../../components/Alert/Alert';
 import Text from '../../../components/Text/Text';
 import { useNavigate } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 
 const initialValues = { email: '', password: '' };
 
@@ -30,19 +31,20 @@ const validationSchema = Yup.object().shape({
 
 const LoginForm = () => {
   const navigate = useNavigate();
-  const [signIn, { loading, error }] = useMutation(authApi.login, {
-    onError: (error) => console.log(error),
+  const { setAuth } = useAuth();
+
+  const [signIn, { loading, error }] = useMutation(SIGN_IN, {
+    onError: (error) => console.log({ error }),
     onCompleted({ signIn }) {
-      navigate('/app/');
       localStorage.setItem('accessToken', JSON.stringify(signIn.accessToken));
+      setAuth({ type: 'LOGGED_IN', payload: { isLoggedIn: true } });
+      navigate('/app/');
     },
   });
 
   const handleSubmit = async (values: typeof initialValues) => {
     await signIn({
-      variables: {
-        payload: values,
-      },
+      variables: { payload: values },
     });
   };
 
