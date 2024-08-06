@@ -41,7 +41,7 @@ const Button = React.forwardRef((props: Button.Props, ref: Button.Ref) => {
     disabled,
     opacity,
     className,
-    pseudos = { hover: { backgroundColor: 'primary-50' } },
+    pseudos,
     ...rest
   } = props;
   const Component = as || 'button';
@@ -73,10 +73,12 @@ const Button = React.forwardRef((props: Button.Props, ref: Button.Ref) => {
         borderColor,
         color,
         borderRadius,
-        cursor,
+        cursor: disabled ? 'ban' : cursor,
         pointer,
         backgroundColor,
-        pseudos,
+        pseudos: disabled
+          ? {}
+          : pseudos || { hover: { backgroundColor: 'primary-50' } },
         className,
       })}
       {...rest}
