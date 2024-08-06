@@ -6,7 +6,7 @@ import Icon from '../../../components/Icon/Icon';
 import Box from '../../../components/Box/Box';
 import Text from '../../../components/Text/Text';
 import Button from '../../../components/Button/Button';
-import { IoAlbums } from 'react-icons/io5';
+import { IoAlbums, IoChevronForwardSharp } from 'react-icons/io5';
 
 const FileHandler = () => {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -25,7 +25,7 @@ const FileHandler = () => {
         alignItems={'center'}
         flexDirection={'column'}
         justifyContent={'center'}
-        backgroundColor={'primary-95'}
+        backgroundColor={'primary-100'}
       >
         <File
           ref={inputRef}
@@ -34,8 +34,8 @@ const FileHandler = () => {
         />
         <Icon
           size={'56'}
-          color={'primary-60'}
           iconType={IoAlbums}
+          color={'primary-40'}
         />
         <Box
           mx={'auto'}
@@ -51,14 +51,19 @@ const FileHandler = () => {
           </Text>
         </Box>
         <Button
+          gap={'xs'}
           height={'32'}
           type={'button'}
-          color={'primary-60'}
+          color={'primary-40'}
           backgroundColor={'inherit'}
-          pseudos={{ hover: { backgroundColor: 'primary-90' } }}
           onClick={() => inputRef.current?.click()}
+          pseudos={{ hover: { color: 'primary-30' } }}
         >
           Open
+          <Icon
+            size={12}
+            iconType={IoChevronForwardSharp}
+          />
         </Button>
       </Flex>
     </Field>
