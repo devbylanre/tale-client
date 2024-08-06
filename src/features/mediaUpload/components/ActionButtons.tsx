@@ -4,6 +4,8 @@ import Modal from '../../../components/Modal/Modal';
 import Button from '../../../components/Button/Button';
 import { useField } from 'formik';
 import { useMutationState } from '@tanstack/react-query';
+import Icon from '../../../components/Icon/Icon';
+import { IoArrowUndoCircleOutline } from 'react-icons/io5';
 
 const ActionButtons = () => {
   const [, { value: files, error: errors }] = useField<File[]>('files');
@@ -29,13 +31,15 @@ const ActionButtons = () => {
       style={{ bottom: 0 }}
     >
       <Modal.Action
+        gap={'xs'}
         height={'32'}
-        color={'white'}
+        color={'primary-40'}
         disabled={isPending}
-        backgroundColor={'gray-60'}
-        pseudos={{ hover: { backgroundColor: 'gray-70' } }}
+        backgroundColor={'inherit'}
+        pseudos={{ hover: { color: 'primary-30' } }}
       >
-        Dismiss
+        Cancel
+        <Icon iconType={IoArrowUndoCircleOutline} />
       </Modal.Action>
 
       <Button
@@ -43,7 +47,7 @@ const ActionButtons = () => {
         type={'submit'}
         disabled={isPending || isDisabled}
       >
-        {isPending ? 'Uploading...' : 'Upload'}
+        {isPending ? 'Uploading...' : 'Submit'}
       </Button>
     </Flex>
   );
