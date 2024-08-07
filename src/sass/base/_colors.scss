@@ -1,4 +1,6 @@
 $shades: shades($colors);
+$lightness: transparency('lightness', rgb(255, 255, 255, 1));
+$darkness: transparency('darkness', rgb(0, 0, 0, 1));
 
 @include set_classes(
   (
@@ -22,7 +24,7 @@ $shades: shades($colors);
       active: ':active',
       placeholder: '::placeholder',
     ),
-    values: $shades,
+    values: map-merge($shades, map-merge($lightness, $darkness)),
   )
 );
 
