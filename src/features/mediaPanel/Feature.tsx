@@ -14,15 +14,17 @@ const MediaPanelFeature = () => {
   const [getMedia] = useLazyQuery<{
     media: Media.Type;
   }>(GET_SINGLE_MEDIA, {
-    variables: { id: mediaID },
     onCompleted: ({ media }) => {
       setMedia({ type: 'READ_SINGLE', payload: media });
     },
   });
 
   useEffect(() => {
-    if (mediaID === null) return;
-    getMedia();
+    if (mediaID) {
+      getMedia({
+        variables: { id: mediaID },
+      });
+    }
   }, [mediaID, getMedia]);
 
   return (
