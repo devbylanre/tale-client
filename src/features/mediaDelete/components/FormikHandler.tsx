@@ -10,7 +10,7 @@ import Text from '../../../components/Text/Text';
 import { useSearchParams } from 'react-router-dom';
 import Box from '../../../components/Box/Box';
 import Icon from '../../../components/Icon/Icon';
-import { IoArrowForward, IoCloseCircle } from 'react-icons/io5';
+import { IoCloseCircle } from 'react-icons/io5';
 
 const FormikHandler = () => {
   const [, setSearchParams] = useSearchParams();
