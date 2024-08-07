@@ -16,10 +16,9 @@ const reducer = (_: Auth.State, action: Auth.Action): Auth.State => {
 
 const AuthProvider = ({ children }: React.PropsWithChildren) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+  let accessToken = localStorage.getItem('accessToken');
 
   useEffect(() => {
-    let accessToken = localStorage.getItem('accessToken');
-
     if (!accessToken) {
       dispatch({ type: 'LOGGED_OUT', payload: { isLoggedIn: false } });
     }
@@ -27,7 +26,7 @@ const AuthProvider = ({ children }: React.PropsWithChildren) => {
     return () => {
       dispatch({ type: 'LOGGED_IN', payload: { isLoggedIn: true } });
     };
-  });
+  }, [accessToken]);
 
   return (
     <AuthContext.Provider value={{ state, dispatch }}>
