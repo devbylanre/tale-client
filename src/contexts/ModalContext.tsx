@@ -14,6 +14,13 @@ type ModalProviderProps = {
 
 const ModalProvider = ({ children, open = false }: ModalProviderProps) => {
   const [isVisible, setIsVisible] = useState(open);
+  const body = document.querySelector('body');
+
+  if (isVisible) {
+    body?.classList.add('body--clip-y');
+  } else {
+    body?.classList.remove('body--clip-y');
+  }
 
   return (
     <ModalContext.Provider value={{ isVisible, setIsVisible }}>
