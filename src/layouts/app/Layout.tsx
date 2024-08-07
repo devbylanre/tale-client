@@ -35,8 +35,8 @@ const AppLayout = () => {
             mx={'auto'}
             style={{
               opacity: user ? 1 : 0,
-              transition: 'opacity .3s ease-in .2s',
               marginLeft: 'var(--sidebar-panel)',
+              transition: 'opacity .25s ease-in .1s',
               width: 'calc(100% - var(--sidebar-panel))',
             }}
           >
