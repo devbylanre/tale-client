@@ -17,13 +17,13 @@ const validationSchema = Yup.object().shape({
     .of(
       Yup.mixed()
         .test(
-          'fileSize',
-          'File size is too big. Max file size is 5MB',
+          'size',
+          'Size is too big. Max file size is 5MB',
           (file) => file && (file as File).size <= 5 * 1024 * 1024
         )
         .test(
-          'fileFormat',
-          'File format is not supported',
+          'format',
+          'Format is not supported',
           (file) =>
             file &&
             ['png', 'jpg', 'jpeg', 'gif'].includes(
@@ -66,9 +66,14 @@ const FormHandler = () => {
           <Error />
           <FileHandler />
           <Box
+            pt={'xl'}
             px={'lg'}
-            mt={'lg'}
             spaceY={'sm'}
+            height={'auto'}
+            maxHeight={'240'}
+            overflowY={'scroll'}
+            pb={values.files.length > 0 ? 'md' : 'none'}
+            className='custom-scrollbar'
           >
             {values.files.map((_, index) => (
               <List
