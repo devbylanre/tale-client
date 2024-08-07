@@ -22,7 +22,7 @@ const SideBar = () => {
         opacity: user ? 1 : 0,
         width: 'var(--sidebar-panel)',
         transform: user ? 'translateX(0em)' : 'translateX(-1.5em)',
-        transition: 'opacity .3s ease-in, transform .3s ease-in',
+        transition: 'opacity .15s ease-in, transform .15s ease-in',
       }}
     >
       <Container container={'full'}>
