@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import Box from '../../../components/Box/Box';
 import Flex from '../../../components/Flex/Flex';
 import Text from '../../../components/Text/Text';
-import Button from '../../../components/Button/Button';
 import Icon from '../../../components/Icon/Icon';
-import { TbDots } from 'react-icons/tb';
 import useMedia from '../../../hooks/useMedia';
+import { IoEnter } from 'react-icons/io5';
+import Button from '../../../components/Button/Button';
 import filer from '../../../utils/file';
 import { useSearchParams } from 'react-router-dom';
 
@@ -15,6 +15,10 @@ const List = () => {
   const [selectedFile, setSelectedFile] = useState(0);
 
   const mediaID = searchParams.get('mediaId');
+
+  const handleClick = (id: string) => {
+    setSearchParams(`mediaId=${id}`);
+  };
 
   return (
     <React.Fragment>
@@ -51,7 +55,7 @@ const List = () => {
               height={isHovered ? 'full' : '40'}
               style={{
                 bottom: '0rem',
-                transition: 'all 0.3s ease-in-out',
+                transition: 'all .15s ease-in-out',
                 backgroundImage: isHovered
                   ? 'linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.4))'
                   : 'linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.35))',
@@ -71,20 +75,23 @@ const List = () => {
                 </Text>
 
                 <Button
-                  p={'xs'}
+                  p={'none'}
                   width={'24'}
                   height={'24'}
+                  color={'gray-40'}
                   borderRadius={'max'}
-                  backgroundColor={'gray-80'}
+                  backgroundColor={'white'}
                   disabled={mediaID !== null}
-                  onClick={() => setSearchParams(`mediaId=${media._id}`)}
-                  pseudos={{ hover: { backgroundColor: 'gray-70' } }}
-                  style={{ opacity: isHovered ? 1 : 0 }}
+                  opacity={isHovered ? '100' : '0'}
+                  onClick={() => handleClick(media._id)}
+                  pseudos={{ hover: { backgroundColor: 'gray-95' } }}
+                  style={{
+                    transform: isHovered ? 'scale(1)' : 'scale(0)',
+                  }}
                 >
                   <Icon
-                    size={'full'}
-                    color={'white'}
-                    iconType={TbDots}
+                    size={16}
+                    iconType={IoEnter}
                   />
                 </Button>
               </Flex>
@@ -93,8 +100,8 @@ const List = () => {
                 gapX={'sm'}
                 alignItems={'center'}
                 style={{
-                  transition: 'all 0.3s ease-in-out',
                   transform: `translateY(${isHovered ? '0rem' : '5rem'})`,
+                  transition: 'transform .15s ease-in-out',
                 }}
               >
                 <img
