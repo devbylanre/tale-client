@@ -15,13 +15,12 @@ const Error = () => {
     <Box
       px={'xl'}
       position={'relative'}
-      backgroundColor={'red-60'}
+      backgroundColor={'red-40'}
       style={{
         zIndex: -1,
-        opacity: error ? 1 : 0,
         visibility: error ? 'visible' : 'hidden',
-        transform: error ? 'translateY(0em)' : 'translateY(-2.5em)',
-        transition: 'opacity .2s ease-in-out, transform .3s ease-in-out',
+        transform: error ? 'translateY(0em)' : 'translateY(-1.75em)',
+        transition: 'transform .15s ease-in',
       }}
     >
       {error ? (
