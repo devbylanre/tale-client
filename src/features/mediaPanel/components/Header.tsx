@@ -3,7 +3,7 @@ import Tabs from '../../../components/Tabs/Tabs';
 import Flex from '../../../components/Flex/Flex';
 import Button from '../../../components/Button/Button';
 import Icon from '../../../components/Icon/Icon';
-import { IoResize } from 'react-icons/io5';
+import { IoExit } from 'react-icons/io5';
 import { useSearchParams } from 'react-router-dom';
 import useMedia from '../../../hooks/useMedia';
 import MediaDetailFeature from '../../mediaDetail/Feature';
@@ -43,11 +43,13 @@ const Header = () => {
           borderRadius={'max'}
           onClick={handleHide}
           backgroundColor={'inherit'}
-          pseudos={{ hover: { backgroundColor: 'gray-90' } }}
+          pseudos={{
+            hover: { color: 'primary-40', backgroundColor: 'primary-95' },
+          }}
         >
           <Icon
             size={20}
-            iconType={IoResize}
+            iconType={IoExit}
           />
         </Button>
       </Flex>
