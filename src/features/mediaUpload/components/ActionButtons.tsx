@@ -20,7 +20,6 @@ const ActionButtons = () => {
 
   return (
     <Flex
-      mt={'xl'}
       px={'lg'}
       py={'md'}
       borderTop={'1'}
