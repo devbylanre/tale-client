@@ -16,7 +16,7 @@ const Triggers = React.forwardRef(
       p = '2xs',
       gap = 'xs',
       borderRadius = 'md',
-      backgroundColor = 'gray-95',
+      backgroundColor = 'gray-100',
       ...rest
     } = props;
 
@@ -40,21 +40,21 @@ const Trigger = React.forwardRef(
     const {
       style,
       onClick,
-      size = 13,
-      weight = 600,
+      size = 14,
+      weight = 400,
       height = '32',
       width = 'full',
       color = 'gray-10',
       borderRadius = 'md',
       backgroundColor = isActive ? 'white' : 'inherit',
       pseudos = {
-        hover: { backgroundColor: isActive ? 'gray-100' : 'gray-90' },
+        hover: { backgroundColor: isActive ? 'white' : 'gray-95' },
       },
       ...rest
     } = props;
 
     const defaultStyle: React.CSSProperties = {
-      boxShadow: isActive ? '1px 2px 5px 0px rgba(0, 0, 0, 0.1)' : undefined,
+      boxShadow: isActive ? '0px 0px 6px 0px var(--darkness-10)' : undefined,
     };
 
     const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
