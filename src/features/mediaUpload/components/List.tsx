@@ -20,7 +20,7 @@ const List = ({ index }: ListProps) => {
   const { percent } = useFileReader(file);
 
   const isLoading = percent !== 100;
-  const isError = !isLoading && errors !== undefined;
+  const isError = !isLoading && errors ? errors[index] : false;
 
   const handleRemove = () => {
     const newFiles = files.filter((_, i) => i !== index);
@@ -59,14 +59,14 @@ const List = ({ index }: ListProps) => {
             iconType={TbCircleArrowUpFilled}
             style={{
               opacity: isError || !isLoading ? 1 : 0,
-              transition: 'opacity .2s ease-in-out',
+              transition: 'opacity .15s ease-in-out',
             }}
           />
         </Flex>
         <Box
           style={{
             opacity: isError ? 1 : 0,
-            transition: 'all .2s ease-in-out',
+            transition: 'all .15s ease-in-out',
             visibility: isError ? 'visible' : 'hidden',
             transform: isError ? 'translateX(0em)' : 'translateX(-.75em)',
           }}
@@ -86,7 +86,7 @@ const List = ({ index }: ListProps) => {
           style={{
             opacity: isLoading ? '1' : '0',
             height: isLoading ? '1.5px' : '0px',
-            transition: 'all .2s ease-in-out',
+            transition: 'all .15s ease-in-out',
           }}
         >
           <Box
@@ -94,7 +94,7 @@ const List = ({ index }: ListProps) => {
             backgroundColor={'blue-60'}
             style={{
               width: `${percent || 0}%`,
-              transition: 'width 0.2s linear',
+              transition: 'width 0.15s linear',
             }}
           />
         </Box>
