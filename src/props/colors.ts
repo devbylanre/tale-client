@@ -96,6 +96,34 @@ const SHADES = [
   'current',
 ] as const;
 
+const LIGHTNESS = [
+  'lightness-10',
+  'lightness-20',
+  'lightness-30',
+  'lightness-40',
+  'lightness-50',
+  'lightness-60',
+  'lightness-70',
+  'lightness-80',
+  'lightness-90',
+  'lightness-95',
+  'lightness-100',
+];
+
+const DARKNESS = [
+  'darkness-10',
+  'darkness-20',
+  'darkness-30',
+  'darkness-40',
+  'darkness-50',
+  'darkness-60',
+  'darkness-70',
+  'darkness-80',
+  'darkness-90',
+  'darkness-95',
+  'darkness-100',
+];
+
 const colors = {
   text: {
     class: 'color',
@@ -106,7 +134,7 @@ const colors = {
   background: {
     class: 'bg',
     pseudos: ['active', 'focus', 'hover', 'placeholder'],
-    values: SHADES,
+    values: [...SHADES, ...LIGHTNESS, ...DARKNESS],
   },
 
   border: {
