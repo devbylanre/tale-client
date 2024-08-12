@@ -1,6 +1,107 @@
 :root {
-  --white: #ffffff;
-  --black: #000000;
+  --white: #fff;
+  --black: #000;
+  --current: currentColor;
+  --inherit: inherit;
+  --gray-10: #202024;
+  --gray-20: #403f47;
+  --gray-30: #605f6b;
+  --gray-40: #6b6977;
+  --gray-50: #83818d;
+  --gray-60: #9796a0;
+  --gray-70: #acabb3;
+  --gray-80: #cac9ce;
+  --gray-90: #d9d8dc;
+  --gray-95: #e7e7e9;
+  --gray-100: #f6f6f7;
+  --red-10: #440505;
+  --red-20: #870909;
+  --red-30: #cb0e0e;
+  --red-40: #e10f0f;
+  --red-50: #e63535;
+  --red-60: #ea5757;
+  --red-70: #ee7979;
+  --red-80: #f4a9a9;
+  --red-90: #f7c1c1;
+  --red-95: #fad9d9;
+  --red-100: #fdf1f1;
+  --blue-10: #001442;
+  --blue-20: #002785;
+  --blue-30: #003bc7;
+  --blue-40: #0041dd;
+  --blue-50: #295fe2;
+  --blue-60: #4d7ae7;
+  --blue-70: #7095ec;
+  --blue-80: #a3bbf3;
+  --blue-90: #bdcef6;
+  --blue-95: #d6e1fa;
+  --blue-100: #f0f4fd;
+  --green-10: #03350f;
+  --green-20: #056a1f;
+  --green-30: #089f2e;
+  --green-40: #09b133;
+  --green-50: #30bd54;
+  --green-60: #53c870;
+  --green-70: #75d38d;
+  --green-80: #a6e3b6;
+  --green-90: #bfebca;
+  --green-95: #d8f3de;
+  --green-100: #f0faf3;
+  --yellow-10: #3b3003;
+  --yellow-20: #776005;
+  --yellow-30: #b29008;
+  --yellow-40: #c6a009;
+  --yellow-50: #cfaf30;
+  --yellow-60: #d7bd53;
+  --yellow-70: #dfca75;
+  --yellow-80: #eadda6;
+  --yellow-90: #f0e6bf;
+  --yellow-95: #f6f0d8;
+  --yellow-100: #fcf9f0;
+  --orange-10: #411c04;
+  --orange-20: #823808;
+  --orange-30: #c2550c;
+  --orange-40: #d85e0d;
+  --orange-50: #de7834;
+  --orange-60: #e48e56;
+  --orange-70: #e9a577;
+  --orange-80: #f1c5a8;
+  --orange-90: #f5d5c0;
+  --orange-95: #f9e5d8;
+  --orange-100: #fdf5f0;
+  --primary-10: #4b1805;
+  --primary-20: #97300b;
+  --primary-30: #e24810;
+  --primary-40: #fb5012;
+  --primary-50: #fc6c38;
+  --primary-60: #fc8559;
+  --primary-70: #fd9d7a;
+  --primary-80: #fec0aa;
+  --primary-90: #fed2c1;
+  --primary-95: #fee3d9;
+  --primary-100: #fff5f1;
+  --lightness-10: rgba(255, 255, 255, 0.0888888889);
+  --lightness-20: rgba(255, 255, 255, 0.1777777778);
+  --lightness-30: rgba(255, 255, 255, 0.2666666667);
+  --lightness-40: rgba(255, 255, 255, 0.3555555556);
+  --lightness-50: rgba(255, 255, 255, 0.4444444444);
+  --lightness-60: rgba(255, 255, 255, 0.5333333333);
+  --lightness-70: rgba(255, 255, 255, 0.6222222222);
+  --lightness-80: rgba(255, 255, 255, 0.7111111111);
+  --lightness-90: rgba(255, 255, 255, 0.8);
+  --lightness-95: rgba(255, 255, 255, 0.8888888889);
+  --lightness-100: rgba(255, 255, 255, 0.9777777778);
+  --darkness-10: rgba(0, 0, 0, 0.0888888889);
+  --darkness-20: rgba(0, 0, 0, 0.1777777778);
+  --darkness-30: rgba(0, 0, 0, 0.2666666667);
+  --darkness-40: rgba(0, 0, 0, 0.3555555556);
+  --darkness-50: rgba(0, 0, 0, 0.4444444444);
+  --darkness-60: rgba(0, 0, 0, 0.5333333333);
+  --darkness-70: rgba(0, 0, 0, 0.6222222222);
+  --darkness-80: rgba(0, 0, 0, 0.7111111111);
+  --darkness-90: rgba(0, 0, 0, 0.8);
+  --darkness-95: rgba(0, 0, 0, 0.8888888889);
+  --darkness-100: rgba(0, 0, 0, 0.9777777778);
   --space: 0.8rem;
   --border-width: 1px;
   --border-radius: 1rem;
@@ -27,6 +128,29 @@ button {
 svg {
   display: inline-block;
   vertical-align: middle;
+}
+
+.body--clip-y {
+  overflow-y: hidden;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 0.2rem;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  background-color: var(--transparent);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  height: 1%;
+  border-radius: 0.8rem;
+  background-color: var(--gray-95);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: var(--gray-90);
+  cursor: grab;
 }
 
 @font-face {
@@ -3201,6 +3325,358 @@ button {
   background-color: #fff5f1;
 }
 
+.bg-lightness-10 {
+  background-color: rgba(255, 255, 255, 0.0888888889);
+}
+
+.hover\:bg-lightness-10:hover {
+  background-color: rgba(255, 255, 255, 0.0888888889);
+}
+
+.active\:bg-lightness-10:active {
+  background-color: rgba(255, 255, 255, 0.0888888889);
+}
+
+.placeholder\:bg-lightness-10::placeholder {
+  background-color: rgba(255, 255, 255, 0.0888888889);
+}
+
+.bg-lightness-20 {
+  background-color: rgba(255, 255, 255, 0.1777777778);
+}
+
+.hover\:bg-lightness-20:hover {
+  background-color: rgba(255, 255, 255, 0.1777777778);
+}
+
+.active\:bg-lightness-20:active {
+  background-color: rgba(255, 255, 255, 0.1777777778);
+}
+
+.placeholder\:bg-lightness-20::placeholder {
+  background-color: rgba(255, 255, 255, 0.1777777778);
+}
+
+.bg-lightness-30 {
+  background-color: rgba(255, 255, 255, 0.2666666667);
+}
+
+.hover\:bg-lightness-30:hover {
+  background-color: rgba(255, 255, 255, 0.2666666667);
+}
+
+.active\:bg-lightness-30:active {
+  background-color: rgba(255, 255, 255, 0.2666666667);
+}
+
+.placeholder\:bg-lightness-30::placeholder {
+  background-color: rgba(255, 255, 255, 0.2666666667);
+}
+
+.bg-lightness-40 {
+  background-color: rgba(255, 255, 255, 0.3555555556);
+}
+
+.hover\:bg-lightness-40:hover {
+  background-color: rgba(255, 255, 255, 0.3555555556);
+}
+
+.active\:bg-lightness-40:active {
+  background-color: rgba(255, 255, 255, 0.3555555556);
+}
+
+.placeholder\:bg-lightness-40::placeholder {
+  background-color: rgba(255, 255, 255, 0.3555555556);
+}
+
+.bg-lightness-50 {
+  background-color: rgba(255, 255, 255, 0.4444444444);
+}
+
+.hover\:bg-lightness-50:hover {
+  background-color: rgba(255, 255, 255, 0.4444444444);
+}
+
+.active\:bg-lightness-50:active {
+  background-color: rgba(255, 255, 255, 0.4444444444);
+}
+
+.placeholder\:bg-lightness-50::placeholder {
+  background-color: rgba(255, 255, 255, 0.4444444444);
+}
+
+.bg-lightness-60 {
+  background-color: rgba(255, 255, 255, 0.5333333333);
+}
+
+.hover\:bg-lightness-60:hover {
+  background-color: rgba(255, 255, 255, 0.5333333333);
+}
+
+.active\:bg-lightness-60:active {
+  background-color: rgba(255, 255, 255, 0.5333333333);
+}
+
+.placeholder\:bg-lightness-60::placeholder {
+  background-color: rgba(255, 255, 255, 0.5333333333);
+}
+
+.bg-lightness-70 {
+  background-color: rgba(255, 255, 255, 0.6222222222);
+}
+
+.hover\:bg-lightness-70:hover {
+  background-color: rgba(255, 255, 255, 0.6222222222);
+}
+
+.active\:bg-lightness-70:active {
+  background-color: rgba(255, 255, 255, 0.6222222222);
+}
+
+.placeholder\:bg-lightness-70::placeholder {
+  background-color: rgba(255, 255, 255, 0.6222222222);
+}
+
+.bg-lightness-80 {
+  background-color: rgba(255, 255, 255, 0.7111111111);
+}
+
+.hover\:bg-lightness-80:hover {
+  background-color: rgba(255, 255, 255, 0.7111111111);
+}
+
+.active\:bg-lightness-80:active {
+  background-color: rgba(255, 255, 255, 0.7111111111);
+}
+
+.placeholder\:bg-lightness-80::placeholder {
+  background-color: rgba(255, 255, 255, 0.7111111111);
+}
+
+.bg-lightness-90 {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.hover\:bg-lightness-90:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.active\:bg-lightness-90:active {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.placeholder\:bg-lightness-90::placeholder {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.bg-lightness-95 {
+  background-color: rgba(255, 255, 255, 0.8888888889);
+}
+
+.hover\:bg-lightness-95:hover {
+  background-color: rgba(255, 255, 255, 0.8888888889);
+}
+
+.active\:bg-lightness-95:active {
+  background-color: rgba(255, 255, 255, 0.8888888889);
+}
+
+.placeholder\:bg-lightness-95::placeholder {
+  background-color: rgba(255, 255, 255, 0.8888888889);
+}
+
+.bg-lightness-100 {
+  background-color: rgba(255, 255, 255, 0.9777777778);
+}
+
+.hover\:bg-lightness-100:hover {
+  background-color: rgba(255, 255, 255, 0.9777777778);
+}
+
+.active\:bg-lightness-100:active {
+  background-color: rgba(255, 255, 255, 0.9777777778);
+}
+
+.placeholder\:bg-lightness-100::placeholder {
+  background-color: rgba(255, 255, 255, 0.9777777778);
+}
+
+.bg-darkness-10 {
+  background-color: rgba(0, 0, 0, 0.0888888889);
+}
+
+.hover\:bg-darkness-10:hover {
+  background-color: rgba(0, 0, 0, 0.0888888889);
+}
+
+.active\:bg-darkness-10:active {
+  background-color: rgba(0, 0, 0, 0.0888888889);
+}
+
+.placeholder\:bg-darkness-10::placeholder {
+  background-color: rgba(0, 0, 0, 0.0888888889);
+}
+
+.bg-darkness-20 {
+  background-color: rgba(0, 0, 0, 0.1777777778);
+}
+
+.hover\:bg-darkness-20:hover {
+  background-color: rgba(0, 0, 0, 0.1777777778);
+}
+
+.active\:bg-darkness-20:active {
+  background-color: rgba(0, 0, 0, 0.1777777778);
+}
+
+.placeholder\:bg-darkness-20::placeholder {
+  background-color: rgba(0, 0, 0, 0.1777777778);
+}
+
+.bg-darkness-30 {
+  background-color: rgba(0, 0, 0, 0.2666666667);
+}
+
+.hover\:bg-darkness-30:hover {
+  background-color: rgba(0, 0, 0, 0.2666666667);
+}
+
+.active\:bg-darkness-30:active {
+  background-color: rgba(0, 0, 0, 0.2666666667);
+}
+
+.placeholder\:bg-darkness-30::placeholder {
+  background-color: rgba(0, 0, 0, 0.2666666667);
+}
+
+.bg-darkness-40 {
+  background-color: rgba(0, 0, 0, 0.3555555556);
+}
+
+.hover\:bg-darkness-40:hover {
+  background-color: rgba(0, 0, 0, 0.3555555556);
+}
+
+.active\:bg-darkness-40:active {
+  background-color: rgba(0, 0, 0, 0.3555555556);
+}
+
+.placeholder\:bg-darkness-40::placeholder {
+  background-color: rgba(0, 0, 0, 0.3555555556);
+}
+
+.bg-darkness-50 {
+  background-color: rgba(0, 0, 0, 0.4444444444);
+}
+
+.hover\:bg-darkness-50:hover {
+  background-color: rgba(0, 0, 0, 0.4444444444);
+}
+
+.active\:bg-darkness-50:active {
+  background-color: rgba(0, 0, 0, 0.4444444444);
+}
+
+.placeholder\:bg-darkness-50::placeholder {
+  background-color: rgba(0, 0, 0, 0.4444444444);
+}
+
+.bg-darkness-60 {
+  background-color: rgba(0, 0, 0, 0.5333333333);
+}
+
+.hover\:bg-darkness-60:hover {
+  background-color: rgba(0, 0, 0, 0.5333333333);
+}
+
+.active\:bg-darkness-60:active {
+  background-color: rgba(0, 0, 0, 0.5333333333);
+}
+
+.placeholder\:bg-darkness-60::placeholder {
+  background-color: rgba(0, 0, 0, 0.5333333333);
+}
+
+.bg-darkness-70 {
+  background-color: rgba(0, 0, 0, 0.6222222222);
+}
+
+.hover\:bg-darkness-70:hover {
+  background-color: rgba(0, 0, 0, 0.6222222222);
+}
+
+.active\:bg-darkness-70:active {
+  background-color: rgba(0, 0, 0, 0.6222222222);
+}
+
+.placeholder\:bg-darkness-70::placeholder {
+  background-color: rgba(0, 0, 0, 0.6222222222);
+}
+
+.bg-darkness-80 {
+  background-color: rgba(0, 0, 0, 0.7111111111);
+}
+
+.hover\:bg-darkness-80:hover {
+  background-color: rgba(0, 0, 0, 0.7111111111);
+}
+
+.active\:bg-darkness-80:active {
+  background-color: rgba(0, 0, 0, 0.7111111111);
+}
+
+.placeholder\:bg-darkness-80::placeholder {
+  background-color: rgba(0, 0, 0, 0.7111111111);
+}
+
+.bg-darkness-90 {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.hover\:bg-darkness-90:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.active\:bg-darkness-90:active {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.placeholder\:bg-darkness-90::placeholder {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.bg-darkness-95 {
+  background-color: rgba(0, 0, 0, 0.8888888889);
+}
+
+.hover\:bg-darkness-95:hover {
+  background-color: rgba(0, 0, 0, 0.8888888889);
+}
+
+.active\:bg-darkness-95:active {
+  background-color: rgba(0, 0, 0, 0.8888888889);
+}
+
+.placeholder\:bg-darkness-95::placeholder {
+  background-color: rgba(0, 0, 0, 0.8888888889);
+}
+
+.bg-darkness-100 {
+  background-color: rgba(0, 0, 0, 0.9777777778);
+}
+
+.hover\:bg-darkness-100:hover {
+  background-color: rgba(0, 0, 0, 0.9777777778);
+}
+
+.active\:bg-darkness-100:active {
+  background-color: rgba(0, 0, 0, 0.9777777778);
+}
+
+.placeholder\:bg-darkness-100::placeholder {
+  background-color: rgba(0, 0, 0, 0.9777777778);
+}
+
 .border-white {
   border-color: #fff;
 }
@@ -6114,7 +6590,7 @@ button {
 }
 
 .col-span-full {
-  grid-column: -1;
+  grid-column: 1/-1;
 }
 
 @media screen and (min-width: 60rem) {
@@ -6158,7 +6634,7 @@ button {
     grid-column: span 12/span 12;
   }
   .sm\:col-span-full {
-    grid-column: -1;
+    grid-column: 1/-1;
   }
 }
 @media screen and (min-width: 71rem) {
@@ -6202,7 +6678,7 @@ button {
     grid-column: span 12/span 12;
   }
   .md\:col-span-full {
-    grid-column: -1;
+    grid-column: 1/-1;
   }
 }
 @media screen and (min-width: 80rem) {
@@ -6246,7 +6722,7 @@ button {
     grid-column: span 12/span 12;
   }
   .lg\:col-span-full {
-    grid-column: -1;
+    grid-column: 1/-1;
   }
 }
 .col-start-auto {
@@ -6804,188 +7280,188 @@ button {
   grid-row: auto;
 }
 
-.row-span-span-1 {
+.row-span-1 {
   grid-row: span 1/span 1;
 }
 
-.row-span-span-2 {
+.row-span-2 {
   grid-row: span 2/span 2;
 }
 
-.row-span-span-3 {
+.row-span-3 {
   grid-row: span 3/span 3;
 }
 
-.row-span-span-4 {
+.row-span-4 {
   grid-row: span 4/span 4;
 }
 
-.row-span-span-5 {
+.row-span-5 {
   grid-row: span 5/span 5;
 }
 
-.row-span-span-6 {
+.row-span-6 {
   grid-row: span 6/span 6;
 }
 
-.row-span-span-7 {
+.row-span-7 {
   grid-row: span 7/span 7;
 }
 
-.row-span-span-8 {
+.row-span-8 {
   grid-row: span 8/span 8;
 }
 
-.row-span-span-9 {
+.row-span-9 {
   grid-row: span 9/span 9;
 }
 
-.row-span-span-10 {
+.row-span-10 {
   grid-row: span 10/span 10;
 }
 
-.row-span-span-11 {
+.row-span-11 {
   grid-row: span 11/span 11;
 }
 
-.row-span-span-12 {
+.row-span-12 {
   grid-row: span 12/span 12;
 }
 
-.row-span-span-full {
-  grid-row: -1;
+.row-span-full {
+  grid-row: 1/-1;
 }
 
 @media screen and (min-width: 60rem) {
   .sm\:row-span-auto {
     grid-row: auto;
   }
-  .sm\:row-span-span-1 {
+  .sm\:row-span-1 {
     grid-row: span 1/span 1;
   }
-  .sm\:row-span-span-2 {
+  .sm\:row-span-2 {
     grid-row: span 2/span 2;
   }
-  .sm\:row-span-span-3 {
+  .sm\:row-span-3 {
     grid-row: span 3/span 3;
   }
-  .sm\:row-span-span-4 {
+  .sm\:row-span-4 {
     grid-row: span 4/span 4;
   }
-  .sm\:row-span-span-5 {
+  .sm\:row-span-5 {
     grid-row: span 5/span 5;
   }
-  .sm\:row-span-span-6 {
+  .sm\:row-span-6 {
     grid-row: span 6/span 6;
   }
-  .sm\:row-span-span-7 {
+  .sm\:row-span-7 {
     grid-row: span 7/span 7;
   }
-  .sm\:row-span-span-8 {
+  .sm\:row-span-8 {
     grid-row: span 8/span 8;
   }
-  .sm\:row-span-span-9 {
+  .sm\:row-span-9 {
     grid-row: span 9/span 9;
   }
-  .sm\:row-span-span-10 {
+  .sm\:row-span-10 {
     grid-row: span 10/span 10;
   }
-  .sm\:row-span-span-11 {
+  .sm\:row-span-11 {
     grid-row: span 11/span 11;
   }
-  .sm\:row-span-span-12 {
+  .sm\:row-span-12 {
     grid-row: span 12/span 12;
   }
-  .sm\:row-span-span-full {
-    grid-row: -1;
+  .sm\:row-span-full {
+    grid-row: 1/-1;
   }
 }
 @media screen and (min-width: 71rem) {
   .md\:row-span-auto {
     grid-row: auto;
   }
-  .md\:row-span-span-1 {
+  .md\:row-span-1 {
     grid-row: span 1/span 1;
   }
-  .md\:row-span-span-2 {
+  .md\:row-span-2 {
     grid-row: span 2/span 2;
   }
-  .md\:row-span-span-3 {
+  .md\:row-span-3 {
     grid-row: span 3/span 3;
   }
-  .md\:row-span-span-4 {
+  .md\:row-span-4 {
     grid-row: span 4/span 4;
   }
-  .md\:row-span-span-5 {
+  .md\:row-span-5 {
     grid-row: span 5/span 5;
   }
-  .md\:row-span-span-6 {
+  .md\:row-span-6 {
     grid-row: span 6/span 6;
   }
-  .md\:row-span-span-7 {
+  .md\:row-span-7 {
     grid-row: span 7/span 7;
   }
-  .md\:row-span-span-8 {
+  .md\:row-span-8 {
     grid-row: span 8/span 8;
   }
-  .md\:row-span-span-9 {
+  .md\:row-span-9 {
     grid-row: span 9/span 9;
   }
-  .md\:row-span-span-10 {
+  .md\:row-span-10 {
     grid-row: span 10/span 10;
   }
-  .md\:row-span-span-11 {
+  .md\:row-span-11 {
     grid-row: span 11/span 11;
   }
-  .md\:row-span-span-12 {
+  .md\:row-span-12 {
     grid-row: span 12/span 12;
   }
-  .md\:row-span-span-full {
-    grid-row: -1;
+  .md\:row-span-full {
+    grid-row: 1/-1;
   }
 }
 @media screen and (min-width: 80rem) {
   .lg\:row-span-auto {
     grid-row: auto;
   }
-  .lg\:row-span-span-1 {
+  .lg\:row-span-1 {
     grid-row: span 1/span 1;
   }
-  .lg\:row-span-span-2 {
+  .lg\:row-span-2 {
     grid-row: span 2/span 2;
   }
-  .lg\:row-span-span-3 {
+  .lg\:row-span-3 {
     grid-row: span 3/span 3;
   }
-  .lg\:row-span-span-4 {
+  .lg\:row-span-4 {
     grid-row: span 4/span 4;
   }
-  .lg\:row-span-span-5 {
+  .lg\:row-span-5 {
     grid-row: span 5/span 5;
   }
-  .lg\:row-span-span-6 {
+  .lg\:row-span-6 {
     grid-row: span 6/span 6;
   }
-  .lg\:row-span-span-7 {
+  .lg\:row-span-7 {
     grid-row: span 7/span 7;
   }
-  .lg\:row-span-span-8 {
+  .lg\:row-span-8 {
     grid-row: span 8/span 8;
   }
-  .lg\:row-span-span-9 {
+  .lg\:row-span-9 {
     grid-row: span 9/span 9;
   }
-  .lg\:row-span-span-10 {
+  .lg\:row-span-10 {
     grid-row: span 10/span 10;
   }
-  .lg\:row-span-span-11 {
+  .lg\:row-span-11 {
     grid-row: span 11/span 11;
   }
-  .lg\:row-span-span-12 {
+  .lg\:row-span-12 {
     grid-row: span 12/span 12;
   }
-  .lg\:row-span-span-full {
-    grid-row: -1;
+  .lg\:row-span-full {
+    grid-row: 1/-1;
   }
 }
 .row-start-auto {
